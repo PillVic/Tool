@@ -28,18 +28,21 @@ set showmode                     "左下角那一行的状态
 
 
 "外观设定
-
+set laststatus=2                                                            "显示状态栏
 colorscheme  slate                                                          "设定配色方案
-set nu                                                                      "在每一行前面显示行号
+set number                                                                  "在每一行前面显示行号
 set hlsearch                                                                "搜索时高亮度显示被找到文本
-set bg=dark                                                                 "显示不同的底色色调
+set background=dark                                                         "显示不同的底色色调
 syntax on                                                                   "语法高亮
 let python_highlight_all=1
 set cursorline                                                              "突出显示当前行
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/        "特殊字符标识
+set columns=45                                                              "每页显示的列数
+
 
 "代码折叠
 set foldmethod=indent           "根据每行的缩进来进行代码折叠
+set foldclose                   "光标离开后取消折叠
 set foldlevel=99
     "使用空格键来代码折叠
     nnoremap<space> za
