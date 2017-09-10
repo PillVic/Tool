@@ -34,7 +34,7 @@ set number                                                                  "在
 set hlsearch                                                                "搜索时高亮度显示被找到文本
 set background=dark                                                         "显示不同的底色色调
 syntax on                                                                   "语法高亮
-let python_highlight_all=1
+let python_highlight_all=1                                                  "Python语法高亮
 set cursorline                                                              "突出显示当前行
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/        "特殊字符标识
 set columns=45                                                              "每页显示的列数
@@ -63,12 +63,22 @@ set smartindent                  "换行时智能缩进
       \ set autoindent
       \ set fileformat=unix
 
+ 
+"分割布局
+set splitbelow            
+set splitright
+    "使用快捷键crlt+Vim标准移动键实现布局切换
+     nnoremap <C-J> <C-W><C-J>
+     nnoremap <C-K> <C-W><C-K>         
+     nnoremap <C-L> <C-W><C-L>
+     nnoremap <C-H> <C-W><C-H>
+
+      
 "安装插件
 Plugin 'tmhedberg/SimpylFold'                                          "安装自动缩进插件
 Plugin 'nvie/vim-flake8'                                               "安装PEP8语法检查插件
 Plugin 'scrooloose/nerdtree'                                           "安装文件浏览树形结构插件
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}        "安装状态栏插件
-Plugin 'Valloric/YouCOmpleteMe'                                        "安装自动补全插件
 
 
 
