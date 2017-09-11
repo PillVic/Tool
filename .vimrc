@@ -62,7 +62,7 @@ set splitright
 Plugin 'tmhedberg/SimpylFold'                                          "安装自动缩进插件
 Plugin 'scrooloose/nerdtree'                                           "安装文件浏览树形结构插件
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}        "安装状态栏插件
-
+Plugin 'Valoric/YouCompleteMe'                                         "安装自动补全插件
 
 
 
