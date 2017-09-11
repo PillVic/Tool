@@ -41,8 +41,7 @@ set columns=45                                                              "每
      colorscheme slate
 
 "代码折叠
-set foldmethod=indent           "根据每行的缩进来进行代码折叠
-set foldclose                   "光标离开后取消折叠
+set foldmethod=indent            "根据缩进来进行代码折叠
 set foldlevel=99
     "使用空格键来代码折叠
     nnoremap<space> za
@@ -54,15 +53,6 @@ set backspace=2                  "随时可用退格键删除
 set autoindent                   "自动缩进
 set smartindent                  "换行时智能缩进
 
-      "按照PEP8进行智能缩进
-      au BufNewFile,BufRead *.py
-      \ set tabstop=4
-      \ set softtabstop=4
-      \ set shiftwidth=4
-      \ set textwidth=79
-      \ set expandtab
-      \ set autoindent
-      \ set fileformat=unix
  
 "分割布局
 set splitbelow            
@@ -83,6 +73,7 @@ Plugin 'Valloric/YouCompleteMe'                                        "安装�
        "针对YouCompleteMe进行设置
        let g:ycm_autoclose_preview_window_after_completion=1
        map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+Plugin 'tpope/vim-fugitive'                                            "安装GIT集成工具
 
 
 
