@@ -38,7 +38,8 @@ set cursorline                                                              "突
 set columns=45                                                              "每页显示的列数
      "配色方案设定
      set background=dark
-     colorscheme slate
+     set t_Co=256
+     colorscheme slate 
 
 "代码折叠
 set foldmethod=indent            "根据缩进来进行代码折叠
@@ -71,9 +72,16 @@ Plugin 'scrooloose/nerdtree'                                           "安装�
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}        "安装状态栏插件
 Plugin 'Valloric/YouCompleteMe'                                        "安装自动补全插件
        "针对YouCompleteMe进行设置
-       let g:ycm_autoclose_preview_window_after_completion=1
-       map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+       let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
+            "打开vim时不再询问是否加载ycm_extra_conf.py配置
+       let g:ycm_confirm_extra_conf=0
+       set completeopt=longest,menu
+       let g:ycm_seed_identifiers_with_syntax=1       "开启语义补全
+       let g:ycm_min_num_of_chars_for_completion=2    "开始补全的字符数
 Plugin 'tpope/vim-fugitive'                                            "安装GIT集成工具
+Plugin 'jnurmine/Zenburn'                                              "安装配色方案
+
+
 
 
 
