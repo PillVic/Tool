@@ -37,10 +37,9 @@ let python_highlight_all=1                                                  "Pyt
 set cursorline                                                              "突出显示当前行
 set columns=45                                                              "每页显示的列数
      "配色方案设定
-     set background=dark
-     set t_Co=256
-     colorscheme slate 
-
+     set t_Co=256                "开启256色
+     colorscheme zenburn 
+     set bg=dark
 "代码折叠
 set foldmethod=indent            "根据缩进来进行代码折叠
 set foldlevel=99
@@ -79,8 +78,6 @@ Plugin 'Valloric/YouCompleteMe'                                        "安装�
        let g:ycm_seed_identifiers_with_syntax=1       "开启语义补全
        let g:ycm_min_num_of_chars_for_completion=2    "开始补全的字符数
 Plugin 'tpope/vim-fugitive'                                            "安装GIT集成工具
-Plugin 'jnurmine/Zenburn'                                              "安装配色方案
-
 
 
 
