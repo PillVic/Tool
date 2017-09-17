@@ -68,6 +68,7 @@ set splitright
 Plugin 'tmhedberg/SimpylFold'                                          "安装自动缩进插件
 Plugin 'nvie/vim-flake8'                                               "安装PEP8语法检查插件
 Plugin 'scrooloose/nerdtree'                                           "安装文件浏览树形结构插件
+Plugin 'kien/ctrlp.vim'                                                "安装超级搜索插件，快捷键ctrl+P即能搜索文件
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}        "安装状态栏插件
 Plugin 'Valloric/YouCompleteMe'                                        "安装自动补全插件
        "针对YouCompleteMe进行设置
