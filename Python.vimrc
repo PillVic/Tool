@@ -38,8 +38,15 @@ set cursorline                                                              "突
 set columns=45                                                              "每页显示的列数
      "配色方案设定
      set t_Co=256                "开启256色
-     colorscheme zenburn 
-     set bg=dark
+     colorscheme solarized
+         let g:solarized_visibility="high"
+         let g:solarized_contrast="high"
+         let g:solarized_termcolors=256
+             if has('gui_running')
+	         set background=light
+             else
+       	         set background=dark 
+             endif 
 "代码折叠
 set foldmethod=indent            "根据缩进来进行代码折叠
 set foldlevel=99
