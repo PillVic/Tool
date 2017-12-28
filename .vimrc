@@ -27,12 +27,17 @@ set encoding=utf-8              "默认编码为utf-8
 set ruler                        "显示最后一行的状态
 set showmode                     "左下角那一行的状态
 
+"搜索设置
+
+set magic                    "搜索开启正则表达式
+set hlsearch                 "搜索时高亮度显示被找到文本
+set noic                     "搜索时不忽略大小写
+
 
 "外观设定
 
-colorscheme   random              "设定配色方案
+colorscheme   random             "设定配色方案
 set nu                           "在每一行前面显示行号
-set hlsearch                     "搜索时高亮度显示被找到文本
 set bg=dark                      "显示不同的底色色调
 syntax on                        "语法高亮
 set cursorline                   "突出显示当前行
