@@ -16,17 +16,21 @@
     " All of your Plugins must be added before the following line
      call vundle#end()            " required
      filetype plugin indent on    " required
+
 "编码设定
+
 set encoding=utf-8              "默认编码为utf-8       
 
  
 "状态查看
+
 set ruler                        "显示最后一行的状态
 set showmode                     "左下角那一行的状态
 
 
 "外观设定
-colorscheme  slate               "设定配色方案
+
+colorscheme   random              "设定配色方案
 set nu                           "在每一行前面显示行号
 set hlsearch                     "搜索时高亮度显示被找到文本
 set bg=dark                      "显示不同的底色色调
@@ -35,6 +39,7 @@ set cursorline                   "突出显示当前行
 set laststatus=2                 "显示状态栏
 
 "代码折叠
+
 set foldmethod=indent            "根据每行的缩进来进行代码折叠
 set foldclose                    "光标离开后取消折叠
     "使用空格键进行代码折叠
@@ -49,6 +54,7 @@ set smartindent                  "换行时智能缩进
 
 
 "分割布局
+
 set splitbelow
 set splitright                
     "使用快捷键crlt+Vim标准移动键实现布局切换
@@ -59,18 +65,11 @@ set splitright
 
 
 "安装插件
+
 Plugin 'tmhedberg/SimpylFold'                                          "安装自动缩进插件
 Plugin 'scrooloose/nerdtree'                                           "安装文件浏览树形结构插件
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}        "安装状态栏插件
-Plugin 'Valoric/YouCompleteMe'                                         "安装自动补全插件
 Plugin 'tpope/vim-fugitive'                                            "安装GIT集成工具
-
-
-
-
-
-
-
 
 
 
