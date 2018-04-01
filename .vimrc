@@ -36,7 +36,7 @@ set noic                     "搜索时不忽略大小写
 
 "外观设定
 
-colorscheme   random             "设定配色方案
+colorscheme   256-grayvim             "设定配色方案
 set nu                           "在每一行前面显示行号
 set bg=dark                      "显示不同的底色色调
 syntax on                        "语法高亮
@@ -56,7 +56,7 @@ set foldclose                    "光标离开后取消折叠
 set backspace=2                  "随时可用退格键删除
 set autoindent                   "自动缩进
 set smartindent                  "换行时智能缩进
-
+set shiftwidth=4                 "设置缩进为4个空格 
 
 "分割布局
 
