@@ -173,7 +173,7 @@ source $ZSH/oh-my-zsh.sh
 # 插件配置
 plugins=(
   git
-  incr.zsh
+  zsh-autosuggestions
 )
 
 
