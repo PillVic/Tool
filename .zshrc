@@ -69,6 +69,7 @@ export EDITOR=vim             #编辑器设置为VIM
 bindkey "\e[3~" delete-char  #delete键为向后删除
     #补全配置
     source  ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source ~/.oh-my-zsh/custom/plugins/incr*.zsh
         #开启自动补全
 	setopt AUTO_LIST
 	setopt AUTO_MENU
