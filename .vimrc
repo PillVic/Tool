@@ -16,7 +16,8 @@
     " All of your Plugins must be added before the following line
      call vundle#end()            " required
      filetype plugin indent on    " required
-
+     set shortmess=a
+     set cmdheight=2
 "编码设定
 
 set encoding=utf-8              "默认编码为utf-8       
@@ -30,9 +31,9 @@ set encoding=utf-8              "默认编码为utf-8
 
 
     "外观设定
-     
 	"状态查看
 	set ruler                        "显示最后一行的状态
+	set showcmd
 	set showmode                     "左下角那一行的状态
 	set laststatus=2                 "显示状态栏
 
@@ -71,7 +72,6 @@ set encoding=utf-8              "默认编码为utf-8
     "代码折叠
  
     set foldmethod=indent            "根据每行的缩进来进行代码折叠
-    set foldclose                    "光标离开后取消折叠
     nnoremap <space> za             "使用空格键进行代码折叠
 
 
@@ -100,5 +100,4 @@ set encoding=utf-8              "默认编码为utf-8
     Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}        "安装状态栏插件
     Plugin 'tpope/vim-fugitive'                                            "安装GIT集成工具
     Plugin 'PillVic/rainbow_parentheses.vim'                               "安装括号染色插件
-
 
