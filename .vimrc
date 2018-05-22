@@ -37,7 +37,7 @@ set encoding=utf-8              "默认编码为utf-8
 	set showmode                     "左下角那一行的状态
 	set laststatus=2                 "显示状态栏
 
-    colorscheme   Dim                "设定配色方案
+    colorscheme   default                "设定配色方案
     set nu                           "在每一行前面显示行号
     set bg=dark                      "显示不同的底色色调
     syntax on                        "语法高亮
@@ -81,6 +81,12 @@ set encoding=utf-8              "默认编码为utf-8
     set autoindent                   "自动缩进
     set smartindent                  "换行时智能缩进
     set shiftwidth=4                 "设置缩进为4个空格 
+
+        "针对lisp括号输入过多，使用[]替代"
+	autocmd BufNewFile,BufRead *.lisp imap [ (
+	autocmd BufNewFile,BufRead *.lisp imap ] )
+
+
 
     "分割布局
 
