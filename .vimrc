@@ -86,8 +86,6 @@ set encoding=utf-8              "默认编码为utf-8
 	autocmd BufNewFile,BufRead *.lisp imap [ (
 	autocmd BufNewFile,BufRead *.lisp imap ] )
 
-
-
     "分割布局
 
     set splitbelow
