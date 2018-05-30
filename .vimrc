@@ -72,8 +72,8 @@ set cursorline                   "突出显示当前行
 "代码折叠
 
 set foldmethod=indent            "根据每行的缩进来进行代码折叠
-nnoremap <space> za             "使用空格键进行代码折叠
-
+"使用空格键进行代码折叠
+nnoremap <space> za             
 
 "输入设定
 
@@ -82,6 +82,8 @@ set autoindent                   "自动缩进
 set smartindent                  "换行时智能缩进
 set shiftwidth=4                 "设置缩进为4个空格 
 imap <tab> <C-n>
+"设置\为自动设置当前行为屏幕中间
+nnoremap \ zz
 
     "针对lisp括号输入过多，使用[]替代"
     autocmd BufNewFile,BufRead *.lisp imap [ (
