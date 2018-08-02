@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 #设置oh-my-zsh地址 
-  export ZSH=/home/pillvic/.oh-my-zsh
+  export ZSH="/home/pillvic/.oh-my-zsh"
 
 #外观设置
 ZSH_THEME="agnoster"
@@ -68,8 +68,8 @@ check-cmd-self-insert() { zle .self-insert && recolor-cmd }
 export EDITOR=vim             #编辑器设置为VIM
 bindkey "\e[3~" delete-char  #delete键为向后删除
     #补全配置
-    source  ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-#    source ~/.oh-my-zsh/custom/plugins/incr*.zsh
+#    source  ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source ~/.oh-my-zsh/custom/plugins/incr*.zsh
         #开启自动补全
 	setopt AUTO_LIST
 	setopt AUTO_MENU
@@ -123,7 +123,7 @@ bindkey "\e[3~" delete-char  #delete键为向后删除
 	zstyle ':completion:*:warnings' format $'\e[01;31m -- No Matches Found --\e[0m'
 	zstyle ':completion:*:corrections' format $'\e[01;32m -- %d (errors: %e) --\e[0m'
 	# cd ~ 补全顺序
-	zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directories' 'users' 'expand'
+ 	zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directories' 'users' 'expand'
 
 # 历史记录的配置
 
@@ -171,6 +171,7 @@ setopt AUTO_PUSHD            #启用cd命令的历史记录
 
 
 source $ZSH/oh-my-zsh.sh
+source .oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 
 
 # 插件配置
 plugins=(
@@ -179,3 +180,5 @@ plugins=(
 )
 
 
+export PATH="~/anaconda2/bin:$PATH"
+export PATH=/usr/bin/:$PATH

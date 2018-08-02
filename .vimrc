@@ -74,6 +74,8 @@ set cursorline                   "突出显示当前行
 set foldmethod=indent            "根据每行的缩进来进行代码折叠
 "使用空格键进行代码折叠
 nnoremap <space> za             
+"使用tab键来打开/关闭所有折叠
+nnoremap <tab> zi
 
 "输入设定
 
@@ -100,7 +102,7 @@ set splitright
      nnoremap <C-H> <C-W><C-H>
 
 
-     
+    
 "安装插件
 
 Plugin 'tmhedberg/SimpylFold'                                          "安装自动缩进插件
