@@ -83,7 +83,6 @@ set backspace=2                  "随时可用退格键删除
 set autoindent                   "自动缩进
 set smartindent                  "换行时智能缩进
 set shiftwidth=4                 "设置缩进为4个空格 
-imap <tab> <C-n>
 "设置\为自动设置当前行为屏幕中间
 nnoremap \ zz
 
