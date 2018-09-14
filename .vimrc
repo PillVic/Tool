@@ -42,6 +42,7 @@ set nu                           "在每一行前面显示行号
 set bg=dark                      "显示不同的底色色调
 syntax on                        "语法高亮
 set cursorline                   "突出显示当前行
+set cursorcolumn                 "突出显示当前列
 	"括号染色设置 
 	let g:rbpt_colorpairs = [
 	    \ ['brown',       'RoyalBlue3'],
