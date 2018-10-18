@@ -175,7 +175,6 @@ source .oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # 插件配置
 plugins=(
-  git
   zsh-autosuggestions
 )
 
