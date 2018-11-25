@@ -37,11 +37,12 @@ set noic                     "搜索时不忽略大小写
     set showmode                     "左下角那一行的状态
     set laststatus=2                 "显示状态栏
 
-colorscheme   darkblue           "设定配色方案
+colorscheme   torte              "设定配色方案
 set nu                           "在每一行前面显示行号
 set bg=dark                      "显示不同的底色色调
 syntax on                        "语法高亮
 set cursorline                   "突出显示当前行
+set wildmenu                     "命令行自动补全
 	"括号染色设置 
 	let g:rbpt_colorpairs = [
 	    \ ['brown',       'RoyalBlue3'],
