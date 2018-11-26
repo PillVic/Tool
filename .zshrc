@@ -67,9 +67,11 @@ check-cmd-self-insert() { zle .self-insert && recolor-cmd }
 #编辑设置
 export EDITOR=vim             #编辑器设置为VIM
 bindkey "\e[3~" delete-char  #delete键为向后删除
+alias vi=nvim
+alias vimdiff='vi -d'
     #补全配置
 #    source  ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-    source ~/.oh-my-zsh/custom/plugins/incr*.zsh
+    source /home/pillvic/.oh-my-zsh/custom/plugins/incr*.zsh
         #开启自动补全
 	setopt AUTO_LIST
 	setopt AUTO_MENU
@@ -171,10 +173,11 @@ setopt AUTO_PUSHD            #启用cd命令的历史记录
 
 
 source $ZSH/oh-my-zsh.sh
-source .oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 
+source /home/pillvic/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 
 
 # 插件配置
 plugins=(
+  git
   zsh-autosuggestions
 )
 
