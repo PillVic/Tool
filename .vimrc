@@ -84,8 +84,8 @@ set autoindent                   "自动缩进
 set smartindent                  "换行时智能缩进
 set shiftwidth=4                 "设置缩进为4个空格 
 set undofile                     "保存撤销历史
-"设置\为自动设置当前行为屏幕中间
-nnoremap \ zz
+"设置<f8>为自动设置当前行为屏幕中间
+nnoremap <f8> zz
 
     "针对lisp括号输入过多，使用[]替代"
     autocmd BufNewFile,BufRead *.lisp imap [ (
