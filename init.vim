@@ -6,6 +6,8 @@
 "编码设定
 
 set encoding=utf-8              "默认编码为utf-8       
+set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+set termencoding=utf-8
 
  
 "搜索设置
