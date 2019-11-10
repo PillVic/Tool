@@ -29,6 +29,7 @@ set nu                           "在每一行前面显示行号
 set bg=dark                      "显示不同的底色色调
 syntax on                        "语法高亮
 set cursorline                   "突出显示当前行
+set so=999  			 "始终让当前行处于中间
 	
 "代码折叠
 
