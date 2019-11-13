@@ -77,7 +77,7 @@ ZSH_THEME=powerlevel10k/powerlevel10k
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     gitfast
-    zsh-syntax-highlighting 
+    fast-syntax-highlighting 
     zsh-autosuggestions 
     colored-man-pages
 )
