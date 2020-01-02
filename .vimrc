@@ -1,23 +1,5 @@
 "Vim的配置文件
 
-    "针对拓展管理器插件Vundle进行配置
- 
-    set nocompatible              " required
-    filetype off                  " required
-
-    "set the runtime path to include Vundle and initialize
-    set rtp+=~/.vim/bundle/Vundle.vim
-    call vundle#begin()
-    " alternatively, pass a path where Vundle should install plugins
-    "call vundle#begin('~/some/path/here')
-    " let Vundle manage Vundle, required
-    Plugin 'gmarik/Vundle.vim'
-    " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
-    " All of your Plugins must be added before the following line
-     call vundle#end()            " required
-     filetype plugin indent on    " required
-     set shortmess=a
-     set cmdheight=2
 "编码设定
 
 set encoding=utf-8              "默认编码为utf-8       
@@ -63,12 +45,6 @@ set wildmenu                     "命令行自动补全
 	    \ ]
 	let g:rbpt_max = 16          "设置最大括号匹配数
 	let g:rbpt_loadcmd_toggle = 0
-	    "设置自动开启括号染色
-	    au VimEnter * RainbowParenthesesToggle
-	    au Syntax * RainbowParenthesesLoadRound
-	    au Syntax * RainbowParenthesesLoadSquare
-	    au Syntax * RainbowParenthesesLoadBraces
-	
 "代码折叠
 
 set foldmethod=indent            "根据每行的缩进来进行代码折叠
@@ -110,10 +86,15 @@ set splitright
 
     
 "安装插件
+call plug#begin('~/.vim/plugged')
+Plug 'tmhedberg/SimpylFold'                                          "安装自动缩进插件
+Plug 'scrooloose/nerdtree'                                           "安装文件浏览树形结构插件
+Plug 'tpope/vim-fugitive'                                            "安装GIT集成工具
 
-Plugin 'tmhedberg/SimpylFold'                                          "安装自动缩进插件
-Plugin 'scrooloose/nerdtree'                                           "安装文件浏览树形结构插件
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}        "安装状态栏插件
-Plugin 'tpope/vim-fugitive'                                            "安装GIT集成工具
-Plugin 'PillVic/rainbow_parentheses.vim'                               "安装括号染色插件
-
+Plug 'vim-airline/vim-airline-themes'                                "安装状态栏的配色方案
+    "关于状态栏的小配置
+    "状态栏的例子
+    "Powerline setting
+    let g:airline_theme='molokai'
+    let g:airline_powerline_fonts = 1
+call plug#end()
