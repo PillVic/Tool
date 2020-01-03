@@ -90,11 +90,11 @@ call plug#begin('~/.vim/plugged')
 Plug 'tmhedberg/SimpylFold'                                          "安装自动缩进插件
 Plug 'scrooloose/nerdtree'                                           "安装文件浏览树形结构插件
 Plug 'tpope/vim-fugitive'                                            "安装GIT集成工具
-
-Plug 'vim-airline/vim-airline-themes'                                "安装状态栏的配色方案
+Plug 'vim-airline/vim-airline'                                       "安装airline状态栏插件
+Plug 'vim-airline/vim-airline-themes'				     "airline主题配件
     "关于状态栏的小配置
     "状态栏的例子
     "Powerline setting
-    let g:airline_theme='molokai'
+    let g:airline_theme='bubblegum'
     let g:airline_powerline_fonts = 1
 call plug#end()
