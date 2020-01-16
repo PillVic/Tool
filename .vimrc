@@ -33,6 +33,7 @@ set backspace=2                  "随时可用退格键删除
 set autoindent                   "自动缩进
 set smartindent                  "换行时智能缩进
 set shiftwidth=4                 "设置缩进为4个空格 
+set undodir=~/.vim/undo-dir      "undo file save directory 	
 set undofile                     "保存撤销历史
 "设置<f8>为自动设置当前行为屏幕中间
 nnoremap <f8> zz
