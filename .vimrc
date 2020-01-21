@@ -66,4 +66,5 @@ Plug 'vim-airline/vim-airline-themes'				     "airline主题配件
     "Powerline setting
     let g:airline_theme='bubblegum'
     let g:airline_powerline_fonts = 1
+    let g:airline#extensions#tabline#enabled = 1
 call plug#end()
