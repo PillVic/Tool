@@ -38,10 +38,9 @@ git clone https://github.com/flazz/vim-colorschemes.git ~/.vim
 #oh my zsh install 
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 #install zsh theme
-git clone https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/themes/powerlevel10k
+git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 git clone https://github.com/zdharma/fast-syntax-highlighting.git \\                               
-~ZSH_CUSTOM/plugins/fast-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+$ZSH_CUSTOM/plugins/fast-syntax-highlighting
 #oh my tmux install 
 cd
 git clone https://github.com/gpakosz/.tmux.git
