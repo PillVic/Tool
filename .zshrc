@@ -78,6 +78,7 @@ ZSH_THEME=powerlevel10k/powerlevel10k
 plugins=(
     gitfast
     fast-syntax-highlighting 
+    history-substring-search
     colored-man-pages
 )
 source $ZSH/oh-my-zsh.sh
