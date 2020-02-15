@@ -26,6 +26,7 @@ echo -p "[git config] input your name:" name
 
 git config --global user.email "$email"
 git config --global user.name "$name"
+git config --global core.quotepath false #let Chinese display normal
 
 
 #vim plug install 
