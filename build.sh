@@ -13,7 +13,7 @@ add-apt-repository ppa:zeal-developers/ppa
 add-apt-repository ppa:kelleyk/emacs
 apt update -y
 apt upgrade -y
-apt install unar racket vim emacs26 tmux htop tig tree zeal vim-powerline wireshark
+apt install unar racket vim emacs26 tmux htop tig tree zeal vim-powerline wireshark texlive-generic-recommend
 
 #wireshark config
 sudo chgrp wireshark /usr/bin/dumpcap
