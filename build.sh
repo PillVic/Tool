@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 #specially for ubuntu
 
@@ -35,6 +35,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 #vim color scheme install 
 mkdir ~/.vim
 git clone https://github.com/flazz/vim-colorschemes.git ~/.vim
+cp -l .vimrc ~/
 
 #oh my zsh install 
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -43,13 +44,10 @@ git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerl
 git clone https://github.com/zdharma/fast-syntax-highlighting.git \\                               
 $ZSH_CUSTOM/plugins/fast-syntax-highlighting
 #oh my tmux install 
-cd
-git clone https://github.com/gpakosz/.tmux.git
+git clone https://github.com/gpakosz/.tmux.git ~/
 ln -s -f .tmux/.tmux.conf
-cp .tmux/.tmux.conf.local .
+cp .tmux/.tmux.conf.local ~/
 
 #spacemacs clone
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
-
-#setting file copy (using hard link)
-cp -l * ~/ 
+cp -l .spacemacs ~/
