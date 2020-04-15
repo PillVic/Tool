@@ -17,18 +17,19 @@ set -xeuo pipefail
 
 add-apt-repository ppa:zeal-developers/ppa
 add-apt-repository ppa:kelleyk/emacs
-apt update -y
-apt upgrade -y
-apt install unar racket vim emacs26 tmux htop tig tree zeal vim-powerline wireshark texlive-generic-recommend
+sudo apt update -y
+sudo apt upgrade -y
+sudo apt install unar racket vim emacs26 tmux htop tig tree zeal vim-powerline wireshark texlive-generic-recommend
+sudo apt install libreoffice-l10n-zh-cn  #add Chinese support for libreoffice
 
 #wireshark config
 sudo chgrp wireshark /usr/bin/dumpcap
 sudo chmod 4755 /usr/bin/dumpcap
-sudo gpasswd  -a $USER wireshark
+sudo gpasswd  -a "$USER" wireshark
 
 #git config
-echo -p "[git config] input your email:" email
-echo -p "[git config] input your name:" name
+read -r -p "[git config] input your email:" email
+read -r -p "[git config] input your name:" name
 
 git config --global user.email "$email"
 git config --global user.name "$name"
@@ -46,9 +47,11 @@ cp -l .vimrc ~/
 #oh my zsh install 
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 #install zsh theme
-git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+cd 
+git clone https://github.com/romkatv/powerlevel10k.git "$ZSH_CUSTOM"/themes/powerlevel10k
 git clone https://github.com/zdharma/fast-syntax-highlighting.git \\                               
-$ZSH_CUSTOM/plugins/fast-syntax-highlighting
+"$ZSH_CUSTOM"/plugins/fast-syntax-highlighting
+
 #oh my tmux install 
 git clone https://github.com/gpakosz/.tmux.git ~/
 ln -s -f .tmux/.tmux.conf
@@ -56,4 +59,4 @@ cp .tmux/.tmux.conf.local ~/
 
 #spacemacs clone
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
-cp -l .spacemacs ~/
+cp -l ~/Tool/.spacemacs ~/
