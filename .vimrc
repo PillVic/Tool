@@ -55,9 +55,9 @@ set splitright
      nnoremap <C-H> <C-W><C-H>
 "多标签页控制
 	"shift+J移到前一个标签页
-	nnoremap <S-J> gT
+	nnoremap <S-H> gT
 	"shift+K移到后一个标签页
-	nnoremap <S-K> gt
+	nnoremap <S-L> gt
 
 "安装插件
 call plug#begin('~/.vim/plugged')
