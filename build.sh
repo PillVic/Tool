@@ -15,11 +15,10 @@ set -xeuo pipefail
 
 #This script is for automatically install the necessary environment
 
-add-apt-repository ppa:zeal-developers/ppa
 add-apt-repository ppa:kelleyk/emacs
 sudo apt update -y
 sudo apt upgrade -y
-sudo apt install unar racket vim emacs26 tmux htop tig tree zeal vim-powerline wireshark texlive-generic-recommend
+sudo apt install unar racket vim emacs26 tmux htop tig tree zeal vim-powerline wireshark curl shellcheck
 sudo apt install libreoffice-l10n-zh-cn  #add Chinese support for libreoffice
 sudo apt install manpages-zh             #add Chinese support for man
 
@@ -46,7 +45,7 @@ git clone https://github.com/flazz/vim-colorschemes.git ~/.vim
 cp -l .vimrc ~/
 
 #oh my zsh install 
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 #install zsh theme
 cd 
 git clone https://github.com/romkatv/powerlevel10k.git "$ZSH_CUSTOM"/themes/powerlevel10k
