@@ -22,6 +22,11 @@ sudo apt install unar racket vim emacs26 tmux htop tig tree zeal vim-powerline w
 sudo apt install libreoffice-l10n-zh-cn  #add Chinese support for libreoffice
 sudo apt install manpages-zh             #add Chinese support for man
 
+#time set
+sudo apt install ntpdate
+sudo ntpdate cn.pool.ntp.org
+sudo hwclock --localtime --systohc
+
 #wireshark config
 sudo chgrp wireshark /usr/bin/dumpcap
 sudo chmod 4755 /usr/bin/dumpcap
