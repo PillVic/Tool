@@ -65,3 +65,4 @@ cp .tmux/.tmux.conf.local ~/
 #spacemacs clone
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 cp -l ~/Tool/.spacemacs ~/
+sudo apt install texlive-latex-recommended texlive-latex-extra dvipng #adding latex support for org mode
