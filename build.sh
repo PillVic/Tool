@@ -66,3 +66,13 @@ cp .tmux/.tmux.conf.local ~/
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 cp -l ~/Tool/.spacemacs ~/
 sudo apt install texlive-latex-recommended texlive-latex-extra dvipng #adding latex support for org mode
+
+#font install
+# clone
+git clone https://github.com/powerline/fonts.git --depth=1
+# install
+cd fonts
+./install.sh
+# clean-up a bit
+cd ..
+rm -rf fonts
