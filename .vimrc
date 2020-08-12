@@ -62,6 +62,8 @@ set splitright
 "安装插件
 call plug#begin('~/.vim/plugged')
 Plug 'tmhedberg/SimpylFold'                                          "安装自动缩进插件
+Plug 'luochen1990/rainbow'
+let g:rainbow_active = 1
 Plug 'scrooloose/nerdtree'                                           "安装文件浏览树形结构插件
 Plug 'tpope/vim-fugitive'                                            "安装GIT集成工具
 Plug 'vim-airline/vim-airline'                                       "安装airline状态栏插件
