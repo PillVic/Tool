@@ -16,6 +16,7 @@ set noic                     "搜索时不忽略大小写
     set laststatus=2                 "显示状态栏
 colorscheme   eva01        "设定配色方案
 set nu                           "在每一行前面显示行号
+set  relativenumber              "设置相对行号
 set bg=dark                      "显示不同的底色色调
 syntax on                        "语法高亮
 set cursorline                   "突出显示当前行
