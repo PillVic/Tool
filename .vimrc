@@ -4,9 +4,9 @@
 set encoding=utf-8              "默认编码为utf-8       
 
 "搜索设置
-set magic                    "搜索开启正则表达式
-set hlsearch                 "搜索时高亮度显示被找到文本
-set noic                     "搜索时不忽略大小写
+set magic                       "搜索开启正则表达式
+set hlsearch                    "搜索时高亮度显示被找到文本
+set noic                        "搜索时不忽略大小写
 
 "外观设定
     "状态查看
@@ -14,7 +14,7 @@ set noic                     "搜索时不忽略大小写
     set showcmd
     set showmode                     "左下角那一行的状态
     set laststatus=2                 "显示状态栏
-colorscheme   eva01        "设定配色方案
+colorscheme   eva01              "设定配色方案
 set nu                           "在每一行前面显示行号
 set  relativenumber              "设置相对行号
 set bg=dark                      "显示不同的底色色调
