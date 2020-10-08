@@ -22,6 +22,7 @@ sudo apt install unar racket vim emacs26 tmux htop tig tree zeal vim-powerline w
 sudo apt install libreoffice-l10n-zh-cn  #add Chinese support for libreoffice
 sudo apt install manpages-zh             #add Chinese support for man
 sudo apt install tldr                    #add command help for linux
+sudo apt install ranger                  #terminal file manager
 
 #time set
 sudo apt install ntpdate
