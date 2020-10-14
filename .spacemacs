@@ -39,13 +39,13 @@ This function should only modify configuration layer settings."
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     ;; auto-completion
+     auto-completion
      ;; better-defaults
      emacs-lisp
      ;; git
      helm
      ;; lsp
-     ;; markdown
+     markdown
      multiple-cursors
       org
      ;; (shell :variables
@@ -479,7 +479,13 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
       ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
       ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
 (setq-default dotspacemacs-themes '(monokai leuven zenburn))
-  )
+(add-hook 'org-mode-hook
+    (lambda ()
+        (local-set-key (kbd "<f5>") 'org-latex-preview)))
+(add-hook 'org-mode-hook
+    (lambda ()
+        (local-set-key (kbd "<f6>") 'org-mark-ring-goto)))
+)
 
 (defun dotspacemacs/user-load ()
   "Library to load while dumping.
@@ -497,7 +503,7 @@ before packages are loaded."
 (setq org-latex-create-formula-image-program 'dvipng)
 (require 'org)
 (plist-put org-format-latex-options :scale 2.5)
-  )
+)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -514,7 +520,7 @@ This function is called at the very end of Spacemacs initialization."
  '(compilation-message-face (quote default))
  '(custom-safe-themes
    (quote
-    ("8f567db503a0d27202804f2ee51b4cd409eab5c4374f57640317b8fcbbd3e466" default)))
+    ("8b58ef2d23b6d164988a607ee153fd2fa35ee33efc394281b1028c2797ddeebb" "76bfa9318742342233d8b0b42e824130b3a50dcc732866ff8e47366aed69de11" "27a1dd6378f3782a593cc83e108a35c2b93e5ecc3bd9057313e1d88462701fcd" "2809bcb77ad21312897b541134981282dc455ccd7c14d74cc333b6e549b824f3" "4a201d19d8f7864e930fbb67e5c2029b558d26a658be1313b19b8958fe451b55" "8f567db503a0d27202804f2ee51b4cd409eab5c4374f57640317b8fcbbd3e466" default)))
  '(evil-want-Y-yank-to-eol nil)
  '(fci-rule-color "#3C3D37")
  '(highlight-changes-colors (quote ("#FD5FF0" "#AE81FF")))
