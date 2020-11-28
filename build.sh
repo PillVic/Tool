@@ -58,7 +58,7 @@ cd
 git clone https://github.com/romkatv/powerlevel10k.git "$ZSH_CUSTOM"/themes/powerlevel10k
 git clone https://github.com/zdharma/fast-syntax-highlighting.git \\                               
 "$ZSH_CUSTOM"/plugins/fast-syntax-highlighting
-
+git clone git@github.com:marlonrichert/zsh-autocomplete.git "$ZSH_CUSTOM"/plugins/zsh-autocomplete
 #oh my tmux install 
 git clone https://github.com/gpakosz/.tmux.git ~/
 ln -s -f .tmux/.tmux.conf
