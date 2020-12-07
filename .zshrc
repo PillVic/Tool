@@ -125,3 +125,4 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+zstyle ':completion:*' extra-verbose yes
