@@ -70,8 +70,26 @@ Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1
 Plug 'scrooloose/nerdtree'                                           "安装文件浏览树形结构插件
 Plug 'tpope/vim-fugitive'                                            "安装GIT集成工具
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }                  "安装fzf
+    "安装vim-clap
+    Plug 'liuchengxu/vim-clap'
+    " Build the extra binary if cargo exists on your system.
+    Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
+    " The bang version will try to download the prebuilt binary if cargo does not exist.
+    Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
+    " :Clap install-binary[!] will always try to compile the binary locally,
+    " if you do care about the disk used for the compilation, try using the force download way,
+    " which will download the prebuilt binary even you have installed cargo.
+    Plug 'liuchengxu/vim-clap', { 'do': { -> clap#installer#force_download() } }
+    " `:Clap install-binary[!]` will run using the terminal feature which is inherently async.
+    " If you don't want that and hope to run the hook synchorously:
+    Plug 'liuchengxu/vim-clap', { 'do': has('win32') ? 'cargo build --release' : 'make' }
+Plug 'glepnir/dashboard-nvim'                                        "安装dashboard
+    let g:dashboard_default_executive ='clap'
+
+Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'                                       "安装airline状态栏插件
-Plug 'vim-airline/vim-airline-themes'				     "airline主题配件
+Plug 'vim-airline/vim-airline-themes'				                 "airline主题配件
     "关于状态栏的小配置
     "状态栏的例子
     "Powerline setting

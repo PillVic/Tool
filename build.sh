@@ -18,7 +18,7 @@ set -xeuo pipefail
 add-apt-repository ppa:kelleyk/emacs
 sudo apt update -y
 sudo apt upgrade -y
-sudo apt install unar racket vim emacs26 tmux htop tig tree zeal vim-powerline wireshark curl shellcheck
+sudo apt install unar racket vim emacs26 tmux htop tig tree zeal vim-powerline wireshark curl shellcheck fzf
 sudo apt install libreoffice-l10n-zh-cn  #add Chinese support for libreoffice
 sudo apt install manpages-zh             #add Chinese support for man
 sudo apt install tldr                    #add command help for linux
