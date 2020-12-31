@@ -24,15 +24,14 @@ set wildmenu                     "命令行自动补全
 	
 "代码折叠
 set foldmethod=indent            "根据每行的缩进来进行代码折叠
-"使用空格键进行代码折叠
-nnoremap <space> za             
-"使用tab键来打开/关闭所有折叠
-nnoremap <tab> zi
+"使用反斜杠键进行代码折叠
+nnoremap \ za
 
 "输入设定
 set backspace=2                  "随时可用退格键删除
 set autoindent                   "自动缩进
 set smartindent                  "换行时智能缩进
+inoremap <C-i> <ESC>
 set shiftwidth=4                 "设置缩进为4个空格 
     "tab设置为4个空格
     set ts=4                     
@@ -48,6 +47,17 @@ nnoremap <f8> zz
     autocmd BufNewFile,BufRead *.scm imap ] )
     autocmd BufNewFile,BufRead *.rkt imap [ (
     autocmd BufNewFile,BufRead *.rkt imap ] )
+
+let g:mapleader="\<Space>"
+"let g:dashboard_default_executive ='Clap' or 'fzf' or 'telescope'
+nmap <Leader>ss :<C-u>SessionSave<CR>
+nmap <Leader>sl :<C-u>SessionLoad<CR>
+nnoremap <silent> <Leader>fh :DashboardFindHistory<CR>
+nnoremap <silent> <Leader>ff :DashboardFindFile<CR>
+nnoremap <silent> <Leader>tc :DashboardChangeColorscheme<CR>
+nnoremap <silent> <Leader>fa :DashboardFindWord<CR>
+nnoremap <silent> <Leader>fb :DashboardJumpMark<CR>
+nnoremap <silent> <Leader>cn :DashboardNewFile<CR>
 
 "分割布局
 set splitbelow
