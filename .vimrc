@@ -26,12 +26,13 @@ set wildmenu                     "命令行自动补全
 set foldmethod=indent            "根据每行的缩进来进行代码折叠
 "使用反斜杠键进行代码折叠
 nnoremap \ za
+nnoremap <tab> zR
 
 "输入设定
 set backspace=2                  "随时可用退格键删除
 set autoindent                   "自动缩进
 set smartindent                  "换行时智能缩进
-inoremap <C-i> <ESC>
+inoremap <C-j> <ESC>
 set shiftwidth=4                 "设置缩进为4个空格 
     "tab设置为4个空格
     set ts=4                     
