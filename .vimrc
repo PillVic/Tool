@@ -112,7 +112,7 @@ Plug 'vim-airline/vim-airline-themes'				                 "airline主题配件
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
  
 "list the plug in coc
-let g:coc_global_extensions = ['coc-clangd', 'coc-sh', 'coc-python', 'coc-marketplace']
+let g:coc_global_extensions = ['coc-clangd', 'coc-sh', 'coc-pyright', 'coc-marketplace']
 " Use tab for trigger completion with characters ahead and navigate.
  " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
  " other plugin before putting this into your config.

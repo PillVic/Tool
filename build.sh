@@ -52,6 +52,10 @@ git clone https://github.com/flazz/vim-colorschemes.git ~/.vim
 cp -l .vimrc ~/
 #vim completion config
 sudo apt install clangd
+#nodejs v14 install
+curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
 
 #oh my zsh install 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
