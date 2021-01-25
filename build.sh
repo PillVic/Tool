@@ -50,6 +50,8 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 mkdir ~/.vim
 git clone https://github.com/flazz/vim-colorschemes.git ~/.vim
 cp -l .vimrc ~/
+#vim completion config
+sudo apt install clangd
 
 #oh my zsh install 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

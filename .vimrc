@@ -107,4 +107,28 @@ Plug 'vim-airline/vim-airline-themes'				                 "airline主题配件
     let g:airline_theme='bubblegum'
     let g:airline_powerline_fonts = 1
     let g:airline#extensions#tabline#enabled = 1
+
+" Use release branch (recommend)
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+ 
+"list the plug in coc
+let g:coc_global_extensions = ['coc-clangd', 'coc-sh', 'coc-python', 'coc-marketplace']
+" Use tab for trigger completion with characters ahead and navigate.
+ " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+ " other plugin before putting this into your config.
+ inoremap <silent><expr> <TAB>
+       \ pumvisible() ? "\<C-n>" :
+       \ <SID>check_back_space() ? "\<TAB>" :
+       \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
 call plug#end()
