@@ -21,6 +21,7 @@ sudo apt upgrade -y
 sudo apt install unar racket vim emacs26 tmux htop tig tree zeal vim-powerline wireshark curl shellcheck fzf
 sudo apt install libreoffice-l10n-zh-cn  #add Chinese support for libreoffice
 sudo apt install manpages-zh             #add Chinese support for man
+sudo apt install manpages-de manpages-de-dev manpages-dev glibc-doc manpages-posix-dev manpages-posix # full man page
 sudo apt install tldr                    #add command help for linux
 sudo apt install ranger                  #terminal file manager
 
