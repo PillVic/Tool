@@ -76,8 +76,18 @@ set splitright
 
 "安装插件
 call plug#begin('~/.vim/plugged')
-Plug 'tmhedberg/SimpylFold'                                          "安装自动缩进插件
-Plug 'luochen1990/rainbow'
+    "编译运行环境插件设置
+    Plug 'tmhedberg/SimpylFold'                                          "安装自动缩进插件
+    Plug 'skywind3000/asynctasks.vim'                                    "设置编译环境
+    Plug 'skywind3000/asyncrun.vim'                                      "设置编译脚本
+        let g:asyncrun_open = 6
+        nnoremap <silent><f5> :AsyncTask file-run<cr>
+        nnoremap <silent><f6> :AsyncTask reopen-file-run<cr>
+        let g:asynctasks_term_pos = 'bottom'
+        let g:asynctasks_term_rows = 7     "set the horizontal terminal split"
+        let g:asynctasks_term_cols = 80     "set width for vertical terminal split
+        let g:asynctasks_term_reuse = 1
+Plug 'luochen1990/rainbow'                                           "括号染色插件
 let g:rainbow_active = 1
 Plug 'scrooloose/nerdtree'                                           "安装文件浏览树形结构插件
 Plug 'tpope/vim-fugitive'                                            "安装GIT集成工具
@@ -110,25 +120,23 @@ Plug 'vim-airline/vim-airline-themes'				                 "airline主题配件
 
 " Use release branch (recommend)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
- 
-"list the plug in coc
-let g:coc_global_extensions = ['coc-clangd', 'coc-sh', 'coc-pyright', 'coc-marketplace']
-" Use tab for trigger completion with characters ahead and navigate.
- " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
- " other plugin before putting this into your config.
- inoremap <silent><expr> <TAB>
-       \ pumvisible() ? "\<C-n>" :
-       \ <SID>check_back_space() ? "\<TAB>" :
-       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+ "配置Coc (LSP插件)
+    let g:coc_global_extensions = ['coc-clangd', 'coc-sh', 'coc-pyright', 'coc-marketplace']
+    " Use tab for trigger completion with characters ahead and navigate.
+     " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+     " other plugin before putting this into your config.
+     inoremap <silent><expr> <TAB>
+           \ pumvisible() ? "\<C-n>" :
+           \ <SID>check_back_space() ? "\<TAB>" :
+           \ coc#refresh()
+    inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+    function! s:check_back_space() abort
+      let col = col('.') - 1
+      return !col || getline('.')[col - 1]  =~# '\s'
+    endfunction
 
-" Make <CR> auto-select the first completion item and notify coc.nvim to
-" format on enter, <cr> could be remapped by other vim plugin
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
+    " Make <CR> auto-select the first completion item and notify coc.nvim to
+    " format on enter, <cr> could be remapped by other vim plugin
+    inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                                  \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 call plug#end()
