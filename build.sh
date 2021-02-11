@@ -58,7 +58,7 @@ curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
 #zsh config
-local plugpath="/home/$USER/.zsh-plugin"
+plugpath="/home/$USER/.zsh-plugin"
 mkdir "$plugpath"
 cp -l  "/home/$USER/Tool/.zshrc" ~/
 cd "$plugpath"
@@ -70,7 +70,7 @@ cd
 
 #oh my tmux install 
 git clone https://github.com/gpakosz/.tmux.git ~/
-ln -s -f .tmux/.tmux.conf
+ln -s -f .tmux/.tmux.conf ~/
 cp .tmux/.tmux.conf.local ~/
 
 #spacemacs clone
