@@ -57,15 +57,17 @@ sudo apt install clangd
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
+#zsh config
+local plugpath="/home/$USER/.zsh-plugin"
+mkdir "$plugpath"
+cp -l  "/home/$USER/Tool/.zshrc" ~/
+cd "$plugpath"
+git clone git@github.com:Aloxaf/fzf-tab.git
+git clone git@github.com:zdharma/fast-syntax-highlighting.git
+git clone git@github.com:romkatv/powerlevel10k.git
+cd
 
-#oh my zsh install 
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-#install zsh theme
-cd 
-git clone https://github.com/romkatv/powerlevel10k.git "$ZSH_CUSTOM"/themes/powerlevel10k
-git clone https://github.com/zdharma/fast-syntax-highlighting.git \\                               
-"$ZSH_CUSTOM"/plugins/fast-syntax-highlighting
-git clone git@github.com:marlonrichert/zsh-autocomplete.git "$ZSH_CUSTOM"/plugins/zsh-autocomplete
+
 #oh my tmux install 
 git clone https://github.com/gpakosz/.tmux.git ~/
 ln -s -f .tmux/.tmux.conf
