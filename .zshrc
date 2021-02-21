@@ -21,8 +21,7 @@ source "/home/$USER/.zsh-plugin/fzf-tab/fzf-tab.plugin.zsh"
 
 zstyle ':completion:*' menu select
 #kill completion set
-zstyle ':completion:*:processes' command "ps -u $USER"
-zstyle ':completion:*:processes' command "ps -u $USER -o pid,command"
+zstyle ':completion:*:processes' command "ps -A  -o pid,user,command"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
