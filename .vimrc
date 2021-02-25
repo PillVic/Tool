@@ -48,18 +48,6 @@ nnoremap <f8> zz
     autocmd BufNewFile,BufRead *.scm imap ] )
     autocmd BufNewFile,BufRead *.rkt imap [ (
     autocmd BufNewFile,BufRead *.rkt imap ] )
-
-let g:mapleader="\<Space>"
-"let g:dashboard_default_executive ='Clap' or 'fzf' or 'telescope'
-nmap <Leader>ss :<C-u>SessionSave<CR>
-nmap <Leader>sl :<C-u>SessionLoad<CR>
-nnoremap <silent> <Leader>fh :DashboardFindHistory<CR>
-nnoremap <silent> <Leader>ff :DashboardFindFile<CR>
-nnoremap <silent> <Leader>tc :DashboardChangeColorscheme<CR>
-nnoremap <silent> <Leader>fa :DashboardFindWord<CR>
-nnoremap <silent> <Leader>fb :DashboardJumpMark<CR>
-nnoremap <silent> <Leader>cn :DashboardNewFile<CR>
-
 "分割布局
 set splitbelow
 set splitright                
@@ -91,24 +79,6 @@ Plug 'luochen1990/rainbow'                                           "括号染�
 let g:rainbow_active = 1
 Plug 'scrooloose/nerdtree'                                           "安装文件浏览树形结构插件
 Plug 'tpope/vim-fugitive'                                            "安装GIT集成工具
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }                  "安装fzf
-    "安装vim-clap
-    Plug 'liuchengxu/vim-clap'
-    " Build the extra binary if cargo exists on your system.
-    Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
-    " The bang version will try to download the prebuilt binary if cargo does not exist.
-    Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
-    " :Clap install-binary[!] will always try to compile the binary locally,
-    " if you do care about the disk used for the compilation, try using the force download way,
-    " which will download the prebuilt binary even you have installed cargo.
-    Plug 'liuchengxu/vim-clap', { 'do': { -> clap#installer#force_download() } }
-    " `:Clap install-binary[!]` will run using the terminal feature which is inherently async.
-    " If you don't want that and hope to run the hook synchorously:
-    Plug 'liuchengxu/vim-clap', { 'do': has('win32') ? 'cargo build --release' : 'make' }
-Plug 'glepnir/dashboard-nvim'                                        "安装dashboard
-    let g:dashboard_default_executive ='clap'
-
-Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'                                       "安装airline状态栏插件
 Plug 'vim-airline/vim-airline-themes'				                 "airline主题配件
     "关于状态栏的小配置
@@ -121,7 +91,7 @@ Plug 'vim-airline/vim-airline-themes'				                 "airline主题配件
 " Use release branch (recommend)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
  "配置Coc (LSP插件)
-    let g:coc_global_extensions = ['coc-clangd', 'coc-sh', 'coc-pyright', 'coc-marketplace']
+    let g:coc_global_extensions = ['coc-clangd', 'coc-sh', 'coc-pyright', 'coc-marketplace', 'coc-json']
     " Use tab for trigger completion with characters ahead and navigate.
      " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
      " other plugin before putting this into your config.
