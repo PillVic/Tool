@@ -44,6 +44,10 @@ git config --global user.email "$email"
 git config --global user.name "$name"
 git config --global core.quotepath false #let Chinese display normal
 
+#mysql install
+sudo apt install mysql-server
+#java install
+sudo apt install openjdk-14-jdk
 
 #vim plug install 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
