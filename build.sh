@@ -19,6 +19,8 @@ add-apt-repository ppa:kelleyk/emacs
 sudo apt update -y
 sudo apt upgrade -y
 sudo apt install unar racket vim emacs26 tmux htop tig tree zeal vim-powerline wireshark curl shellcheck fzf
+#install faster grep
+sudo apt install silversearcher-ag
 sudo apt install bat fd-find ncdu
 sudo apt install libreoffice-l10n-zh-cn  #add Chinese support for libreoffice
 sudo apt install manpages-zh             #add Chinese support for man
@@ -45,9 +47,10 @@ git config --global user.name "$name"
 git config --global core.quotepath false #let Chinese display normal
 
 #mysql install
-sudo apt install mysql-server
+sudo apt install mysql-server mycli
 #java install
 sudo apt install openjdk-14-jdk
+sudo apt install maven
 
 #vim plug install 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
