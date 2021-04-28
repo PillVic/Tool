@@ -1,12 +1,16 @@
 #!/bin/python3
 import os
 from collections import deque
+import re
 
 def neols(path):
     return deque(map(lambda x:path+"/"+x, os.listdir(path)))
 
+def defaultFilter(fileName):
+    return (not os.path.islink(fileName)) and re.match(".*\.git$", fileName) == None
+
 #dfs traversal the directory and operate all the target file
-def dfs(path, judge=os.path.isdir, foo=print, ftr=lambda x:True):
+def dfs(path, judge=lambda x:True, foo=print, ftr=defaultFilter):
     #path: the dfs start path
     #judge(absolutePath): function judge whether execute functions foo, 
     #foo(absolutePath): operate the target file
