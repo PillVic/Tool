@@ -7,6 +7,8 @@ set encoding=utf-8              "默认编码为utf-8
 set magic                       "搜索开启正则表达式
 set hlsearch                    "搜索时高亮度显示被找到文本
 set noic                        "搜索时不忽略大小写
+"反斜杠取消搜索结果高亮
+nnoremap \ :nohl<cr>
 
 "外观设定
     "状态查看
@@ -14,7 +16,7 @@ set noic                        "搜索时不忽略大小写
     set showcmd
     set showmode                     "左下角那一行的状态
     set laststatus=2                 "显示状态栏
-colorscheme   eva01              "设定配色方案
+colorscheme   space-vim-dark              "设定配色方案
 set nu                           "在每一行前面显示行号
 set  relativenumber              "设置相对行号
 set bg=dark                      "显示不同的底色色调
@@ -25,8 +27,8 @@ set wildmenu                     "命令行自动补全
 "代码折叠
 set foldmethod=indent            "根据每行的缩进来进行代码折叠
 "使用反斜杠键进行代码折叠
-nnoremap \ za
-nnoremap <tab> zR
+nnoremap ` za
+nnoremap . zR
 
 "输入设定
 set backspace=2                  "随时可用退格键删除
@@ -40,7 +42,7 @@ set shiftwidth=4                 "设置缩进为4个空格
 set undodir=~/.vim/undo-dir      "undo file save directory 	
 set undofile                     "保存撤销历史
 "设置<f8>为自动设置当前行为屏幕中间
-nnoremap <f8> zz
+nnoremap m zz
     "针对lisp括号输入过多，使用[]替代"
     autocmd BufNewFile,BufRead *.lisp imap [ (
     autocmd BufNewFile,BufRead *.lisp imap ] )
