@@ -8,7 +8,7 @@ set magic                       "搜索开启正则表达式
 set hlsearch                    "搜索时高亮度显示被找到文本
 set noic                        "搜索时不忽略大小写
 "反斜杠取消搜索结果高亮
-nnoremap \ :nohl<cr>
+nnoremap \ :nohl<enter>
 
 "外观设定
     "状态查看
@@ -26,9 +26,12 @@ set wildmenu                     "命令行自动补全
 	
 "代码折叠
 set foldmethod=indent            "根据每行的缩进来进行代码折叠
-"使用反斜杠键进行代码折叠
+"折叠/展开部分
 nnoremap ` za
-nnoremap . zR
+"折叠全部
+nnoremap . zM
+"展开全部
+nnoremap = zR
 
 "输入设定
 set backspace=2                  "随时可用退格键删除
@@ -36,13 +39,20 @@ set autoindent                   "自动缩进
 set smartindent                  "换行时智能缩进
 inoremap <C-j> <ESC>
 set shiftwidth=4                 "设置缩进为4个空格 
-    "tab设置为4个空格
-    set ts=4                     
-    set expandtab                     
+"tab设置为4个空格
+set ts=4
+set expandtab
 set undodir=~/.vim/undo-dir      "undo file save directory 	
 set undofile                     "保存撤销历史
-"设置<f8>为自动设置当前行为屏幕中间
+nnoremap W :w<enter>
+nnoremap Q :q<enter>
+"设置回车键为命令模式
+nnoremap <enter> :
+"设置 m, J为自动设置当前行为屏幕中间
 nnoremap m zz
+nnoremap J zz
+"设置K为将当前行为屏幕最后一行
+nnoremap K zb
     "针对lisp括号输入过多，使用[]替代"
     autocmd BufNewFile,BufRead *.lisp imap [ (
     autocmd BufNewFile,BufRead *.lisp imap ] )
@@ -50,6 +60,12 @@ nnoremap m zz
     autocmd BufNewFile,BufRead *.scm imap ] )
     autocmd BufNewFile,BufRead *.rkt imap [ (
     autocmd BufNewFile,BufRead *.rkt imap ] )
+
+"记忆编辑位置
+if has("autocmd")                                                          
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif 
+
 "分割布局
 set splitbelow
 set splitright                
@@ -58,10 +74,11 @@ set splitright
      nnoremap <C-K> <C-W><C-K>         
      nnoremap <C-L> <C-W><C-L>
      nnoremap <C-H> <C-W><C-H>
+
 "多标签页控制
-	"shift+J移到前一个标签页
+	"shift+H移到前一个标签页
 	nnoremap <S-H> gT
-	"shift+K移到后一个标签页
+	"shift+L移到后一个标签页
 	nnoremap <S-L> gt
 
 "安装插件
