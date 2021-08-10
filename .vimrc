@@ -44,6 +44,7 @@ set ts=4
 set expandtab
 set undodir=~/.vim/undo-dir      "undo file save directory 	
 set undofile                     "保存撤销历史
+set directory=~/.vim/swapfiles
 nnoremap W :w<enter>
 nnoremap Q :q<enter>
 "设置回车键为命令模式
