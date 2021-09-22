@@ -30,5 +30,5 @@ if __name__ == "__main__":
     elif preview_nameandline[0].replace("'", '').endswith(('.html', '.htm', '.xhtml')):
         os.system('w3m -dump {}'.format(preview_nameandline[0]))
     else:
-        os.system('batcat --style=numbers --color=always -r {}: {}'.format(
+        os.system('bat --style=numbers --color=always -r {}: {}'.format(
             preview_nameandline[1], preview_nameandline[0]))
