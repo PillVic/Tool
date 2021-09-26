@@ -100,6 +100,7 @@ let g:rainbow_active = 1
 Plug 'scrooloose/nerdtree'                                           "安装文件浏览树形结构插件
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-fugitive'                                            "安装GIT集成工具
+Plug 'solarnz/thrift.vim'
 Plug 'vim-airline/vim-airline'                                       "安装airline状态栏插件
 Plug 'vim-airline/vim-airline-themes'				                 "airline主题配件
     "关于状态栏的小配置
