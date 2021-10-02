@@ -120,6 +120,7 @@ alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir
 alias vi='vim'
 alias du='ncdu --color dark -rr -x --exclude .git --exclude node_modules'
 alias batcat="bat"
+alias tailf="tail -f"
 alias history="fc -li 1"
 
 #alias fd="fdfind"
