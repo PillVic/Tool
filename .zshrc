@@ -116,6 +116,7 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
+alias ra='ranger'
 alias vi='vim'
 alias du='ncdu --color dark -rr -x --exclude .git --exclude node_modules'
 alias batcat="bat"
