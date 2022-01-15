@@ -79,7 +79,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    zsh-syntax-highlighting
+    fast-syntax-highlighting
     colored-man-pages
     z
 )
@@ -121,6 +121,7 @@ alias vi='vim'
 alias du='ncdu --color dark -rr -x --exclude .git --exclude node_modules'
 alias batcat="bat"
 alias tailf="tail -f"
+alias ls="exa"
 alias history="fc -li 1"
 
 #alias fd="fdfind"

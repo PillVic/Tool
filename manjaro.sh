@@ -29,6 +29,12 @@ yay -S install ranger                  #terminal file manager
 yay -S ueberzug                        #for image preview
 yay -S ffmpegthumbnailer               #for video preview
 
+#install coq
+sudo pacman -S snapd
+sudo systemctl enable --now snapd.socket
+sudo ln -s /var/lib/snapd/snap /snap
+sudo snap install coq-prover
+
 #time set
 yay -S install ntpdate
 sudo ntpdate cn.pool.ntp.org
@@ -72,7 +78,7 @@ mkdir "$plugpath"
 cp -l  "/home/$USER/Tool/.zshrc" ~/
 cd "$plugpath"
 git clone git@github.com:Aloxaf/fzf-tab.git
-git clone git@github.com:zdharma/fast-syntax-highlighting.git
+git clone git@github.com:zdharma-continuum/fast-syntax-highlighting.git
 git clone git@github.com:romkatv/powerlevel10k.git
 cd
 
