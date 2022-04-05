@@ -500,6 +500,13 @@ before packages are loaded."
 (setq org-latex-create-formula-image-program 'dvipng)
 (require 'org)
 (plist-put org-format-latex-options :scale 4.5)
+
+"add latex package for music note
+https://martin-thoma.com/how-to-write-music-with-latex/"
+(setq org-latex-listings t)
+(add-to-list 'org-latex-packages-alist '("" "wasysym"))
+(add-to-list 'org-latex-packages-alist '("" "harmony"))
+(add-to-list 'org-latex-packages-alist '("" "musixtex"))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
