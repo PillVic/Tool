@@ -61,6 +61,7 @@ nnoremap K zb
     autocmd BufNewFile,BufRead *.scm imap ] )
     autocmd BufNewFile,BufRead *.rkt imap [ (
     autocmd BufNewFile,BufRead *.rkt imap ] )
+let g:autoformat_verbosemode=1
 
 "记忆编辑位置
 if has("autocmd")                                                          
@@ -102,6 +103,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-fugitive'                                            "安装GIT集成工具
 Plug 'solarnz/thrift.vim'
 Plug 'vim-airline/vim-airline'                                       "安装airline状态栏插件
+Plug 'Chiel92/vim-autoformat'                                        "安装格式化插件
 Plug 'vim-airline/vim-airline-themes'				                 "airline主题配件
     "关于状态栏的小配置
     "状态栏的例子
