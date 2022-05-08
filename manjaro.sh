@@ -72,6 +72,9 @@ yay -S install clangd
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 yay -y nodejs
 
+#arthas install
+curl -L https://arthas.aliyun.com/install.sh | sh
+
 #zsh config
 plugpath="/home/$USER/.zsh-plugin"
 mkdir "$plugpath"
