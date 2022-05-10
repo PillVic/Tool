@@ -71,6 +71,8 @@ yay -S install clangd
 #nodejs v14 install
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 yay -y nodejs
+#npm 换源
+npm config set registry https://registry.npm.taobao.org
 
 #arthas install
 curl -L https://arthas.aliyun.com/install.sh | sh
