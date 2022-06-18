@@ -18,7 +18,7 @@ set -xeuo pipefail
 add-apt-repository ppa:kelleyk/emacs
 sudo apt update -y
 sudo apt upgrade -y
-sudo apt install unar racket vim emacs26 tmux htop tig tree zeal vim-powerline wireshark curl shellcheck fzf
+sudo apt install unar racket vim emacs tmux htop tig tree zeal wireshark curl shellcheck
 #install faster grep
 sudo apt install silversearcher-ag
 sudo apt install bat fd-find ncdu
@@ -49,7 +49,7 @@ git config --global core.quotepath false #let Chinese display normal
 #mysql install
 sudo apt install mysql-server mycli
 #java install
-sudo apt install openjdk-14-jdk
+sudo apt install openjdk-18-jdk
 sudo apt install maven
 
 #vim plug install 
@@ -64,6 +64,7 @@ sudo apt install clangd
 #nodejs v14 install
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 sudo apt-get install -y nodejs
+npm config set registry https://registry.npm.taobao.org
 
 #zsh config
 plugpath="/home/$USER/.zsh-plugin"
