@@ -30,6 +30,7 @@ tmux_conf_new_pane_retain_current_path=true
 #   - true
 #   - false (default)
 tmux_conf_new_pane_reconnect_ssh=false
+set-option -g default-shell /bin/zsh
 
 # prompt for session name when creating a new session, possible values are:
 #   - true
