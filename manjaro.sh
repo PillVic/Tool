@@ -17,15 +17,15 @@ set -xeuo pipefail
 
 sudo pacman -S yay
 yay -Syu
-yay -S install unar racket vim emacs26 tmux htop tig tree zeal vim-powerline wireshark curl shellcheck fzf
+yay -S racket vim emacs tmux htop tig tree zeal vim-powerline wireshark curl shellcheck fzf
 #install faster grep
-yay -S install silversearcher-ag
-yay -S install bat fd-find ncdu
-yay -S install libreoffice-l10n-zh-cn  #add Chinese support for libreoffice
-yay -S install manpages-zh             #add Chinese support for man
-yay -S install manpages-de manpages-de-dev manpages-dev glibc-doc manpages-posix-dev manpages-posix # full man page
-yay -S install tldr                    #add command help for linux
-yay -S install ranger                  #terminal file manager
+yay -S  ack
+yay -S  bat fd-find ncdu
+yay -S  libreoffice-l10n-zh-cn  #add Chinese support for libreoffice
+yay -S  manpages-zh             #add Chinese support for man
+yay -S  manpages-de manpages-de-dev manpages-dev glibc-doc manpages-posix-dev manpages-posix # full man page
+yay -S  tldr                    #add command help for linux
+yay -S  ranger                  #terminal file manager
 yay -S ueberzug                        #for image preview
 yay -S ffmpegthumbnailer               #for video preview
 
@@ -54,10 +54,10 @@ git config --global user.name "$name"
 git config --global core.quotepath false #let Chinese display normal
 
 #mysql install
-yay -S install mysql-server mycli
+yay -S  mysql mycli
 #java install
-yay -S install openjdk-17-jdk
-yay -S install maven
+yay -S openjdk-18-jdk
+yay -S maven
 
 #vim plug install 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -67,10 +67,9 @@ mkdir ~/.vim
 git clone https://github.com/flazz/vim-colorschemes.git ~/.vim
 cp -l .vimrc ~/
 #vim completion config
-yay -S install clangd
-#nodejs v14 install
-curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-yay -y nodejs
+yay -S clang
+#nodejs install
+yay -y nodejs npm
 #npm 换源
 npm config set registry https://registry.npm.taobao.org
 
@@ -96,7 +95,7 @@ cp .tmux/.tmux.conf.local ~/
 #spacemacs clone
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 cp -l ~/Tool/.spacemacs ~/
-yay -S texlive-latex-recommended texlive-latex-extra dvipng #adding latex support for org mode
+yay -S texlive-latex-most texlive-latex-lang #adding latex support for org mode
 
 #font install
 # clone
