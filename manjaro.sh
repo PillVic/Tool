@@ -28,6 +28,7 @@ yay -S  tldr                    #add command help for linux
 yay -S  ranger                  #terminal file manager
 yay -S ueberzug                        #for image preview
 yay -S ffmpegthumbnailer               #for video preview
+yay -S unison                   #directory sync
 
 #install coq
 sudo pacman -S snapd
