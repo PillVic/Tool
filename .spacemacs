@@ -482,6 +482,12 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
 (add-hook 'org-mode-hook
     (lambda ()
         (local-set-key (kbd "<f6>") 'org-mark-ring-goto)))
+
+(setq configuration-layer-elpa-archives
+    '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+      ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
+      ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
+
 )
 
 (defun dotspacemacs/user-load ()
