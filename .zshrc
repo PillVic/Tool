@@ -5,6 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -118,7 +119,7 @@ source $ZSH/oh-my-zsh.sh
 alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias ra='ranger'
 alias vi='vim'
-alias du='ncdu --color dark -rr -x --exclude .git --exclude node_modules'
+#alias du='ncdu --color dark -rr -x --exclude .git --exclude node_modules'
 alias batcat="bat"
 alias tailf="tail -f"
 alias ls="exa"
