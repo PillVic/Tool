@@ -487,6 +487,12 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
     '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
       ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
       ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
+
+(setq org-latex-pdf-process '("xelatex -interaction nonstopmode %f"
+                              "xelatex -interaction nonstopmode %f"))
+(setq org-latex-default-packages-alist
+     (remove '("AUTO" "inputenc" t) org-latex-default-packages-alist))
+
 )
 
 (defun dotspacemacs/user-load ()
@@ -504,6 +510,18 @@ Put your configuration code here, except for variables that should be set
 before packages are loaded."
 (setq org-latex-create-formula-image-program 'dvipng)
 (require 'org)
+
+(add-to-list 'org-preview-latex-process-alist '(xdvsvgm :progams
+							("xelatex" "dvisvgm")
+							:discription "xdv > svg"
+							:message "you need install the programs: xelatex and dvisvgm."
+							:image-input-type "xdv"
+							:image-output-type "svg"
+							:image-size-adjust (0.7 . 0.5)
+							:latex-compiler ("xelatex -interaction nonstopmode -no-pdf -output-directory %o %f")
+							:image-converter ("dvisvgm %f -n -b min -c %S -o %O")))
+(setq org-preview-latex-default-process 'xdvsvgm)
+
 (plist-put org-format-latex-options :scale 4.5)
 
 "add latex package for music note
@@ -512,6 +530,8 @@ https://martin-thoma.com/how-to-write-music-with-latex/"
 (add-to-list 'org-latex-packages-alist '("" "wasysym"))
 (add-to-list 'org-latex-packages-alist '("" "harmony"))
 (add-to-list 'org-latex-packages-alist '("" "musixtex"))
+
+(add-to-list 'org-latex-packages-alist '("" "ctex"))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
