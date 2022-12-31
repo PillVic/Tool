@@ -488,11 +488,6 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
       ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
       ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
 
-(setq org-latex-pdf-process '("xelatex -interaction nonstopmode %f"
-                              "xelatex -interaction nonstopmode %f"))
-(setq org-latex-default-packages-alist
-     (remove '("AUTO" "inputenc" t) org-latex-default-packages-alist))
-
 )
 
 (defun dotspacemacs/user-load ()
@@ -532,6 +527,12 @@ https://martin-thoma.com/how-to-write-music-with-latex/"
 (add-to-list 'org-latex-packages-alist '("" "musixtex"))
 
 (add-to-list 'org-latex-packages-alist '("" "ctex"))
+
+(setq org-latex-pdf-process '("xelatex -interaction nonstopmode %f"
+                              "xelatex -interaction nonstopmode %f"))
+(setq org-latex-default-packages-alist
+     (remove '("AUTO" "inputenc" t) org-latex-default-packages-alist))
+
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
