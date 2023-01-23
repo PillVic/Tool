@@ -519,13 +519,6 @@ before packages are loaded."
 
 (plist-put org-format-latex-options :scale 4.5)
 
-"add latex package for music note
-https://martin-thoma.com/how-to-write-music-with-latex/"
-(setq org-latex-listings t)
-(add-to-list 'org-latex-packages-alist '("" "wasysym"))
-(add-to-list 'org-latex-packages-alist '("" "harmony"))
-(add-to-list 'org-latex-packages-alist '("" "musixtex"))
-
 (add-to-list 'org-latex-packages-alist '("" "ctex"))
 
 (setq org-latex-pdf-process '("xelatex -interaction nonstopmode %f"
