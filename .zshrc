@@ -125,6 +125,9 @@ alias tailf="tail -f"
 alias ls="exa"
 alias history="fc -li 1"
 
+export JAVA_HOME="/usr/lib/jvm/java-19-openjdk"
+export PATH=$JAVA_HOME/bin:$PATH
+
 #alias fd="fdfind"
 export FZF_DEFAULT_COMMAND='fd --hidden --follow -E ".git" -E "node_modules" . /etc /home'
 export FZF_DEFAULT_OPTS='--height 90% --layout=reverse --bind=alt-j:down,alt-k:up,alt-i:toggle+down --border --preview "echo {} | ~/Tool/fzf_preview.py"'

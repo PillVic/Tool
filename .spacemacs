@@ -488,6 +488,8 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
       ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
       ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
 
+(setq org-ellipsis "↷")
+
 )
 
 (defun dotspacemacs/user-load ()
