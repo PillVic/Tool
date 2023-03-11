@@ -32,6 +32,8 @@ nnoremap ` za
 nnoremap . zM
 "展开全部
 nnoremap = zR
+"正常模式t打开coc-explorer
+nnoremap t :CocCommand explorer <enter>
 
 "输入设定
 set backspace=2                  "随时可用退格键删除
@@ -98,7 +100,6 @@ call plug#begin('~/.vim/plugged')
         let g:asynctasks_term_reuse = 1
 Plug 'luochen1990/rainbow'                                           "括号染色插件
 let g:rainbow_active = 1
-Plug 'scrooloose/nerdtree'                                           "安装文件浏览树形结构插件
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-fugitive'                                            "安装GIT集成工具
 Plug 'solarnz/thrift.vim'
@@ -108,14 +109,23 @@ Plug 'vim-airline/vim-airline-themes'				                 "airline主题配件
     "关于状态栏的小配置
     "状态栏的例子
     "Powerline setting
-    let g:airline_theme='bubblegum'
+    let g:airline_theme='sol'
     let g:airline_powerline_fonts = 1
     let g:airline#extensions#tabline#enabled = 1
 
 " Use release branch (recommend)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
  "配置Coc (LSP插件)
-    let g:coc_global_extensions = ['coc-clangd', 'coc-sh', 'coc-pyright', 'coc-marketplace', 'coc-json', 'coc-sql', 'coc-xml']
+    let g:coc_global_extensions = [
+        \ 'coc-clangd',
+        \ 'coc-sh',
+        \ 'coc-pyright',
+        \ 'coc-marketplace',
+        \ 'coc-json',
+        \ 'coc-sql',
+        \ 'coc-xml',
+        \ 'coc-explorer'
+    \]
 
     " Use tab for trigger completion with characters ahead and navigate.
     " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -130,4 +140,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
     " <C-g>u breaks current undo, please make your own choice.
     inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                                   \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+    let g:copilot_no_tab_map = v:true
+    imap <silent><script><expr> <C-y> copilot#Accept("\<CR>")
 call plug#end()
