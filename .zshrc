@@ -120,10 +120,12 @@ export LANG=zh_CN.UTF-8
 alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias ra='ranger'
 alias vi='vim'
-#alias du='ncdu --color dark -rr -x --exclude .git --exclude node_modules'
 alias batcat="bat"
 alias tailf="tail -f"
 alias ls="exa"
+alias deep="fd -t f|ack -v '(\.cpp)|(\.c)|(\.java)'| xargs ack "
+alias catch="fd -t f|ack '(\.cpp)'| xargs ack "
+alias query="fd -t f|ack '(\.cpp)'| xargs ack "
 alias history="fc -li 1"
 
 export JAVA_HOME="/usr/lib/jvm/java-19-openjdk"
