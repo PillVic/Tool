@@ -1,0 +1,9 @@
+#!/usr/bin/python3
+
+import os
+
+print("pid, pname, dir")
+for line in os.popen("jps|grep -v Jps").read().rstrip("\n").split("\n"):
+    pid, pname = line.split(" ")
+    cwd = os.popen("ls -l /proc/{} |grep cwd".format(pid)).read().split("-> ")[1].rstrip("\n")
+    print("{} {} {}".format(pid, pname, cwd))
