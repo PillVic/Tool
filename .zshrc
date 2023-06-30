@@ -123,14 +123,15 @@ alias vi='vim'
 alias batcat="bat"
 alias tailf="tail -f"
 alias ls="exa"
-alias deep="fd -t f|ack -v '(\.cpp)|(\.c)|(\.java)|(\.h)'| xargs ack "
+alias deep="fd -t f|ack -v '(\.cpp)|(\.c)|(\.java)|()'| xargs ack "
 alias catch="fd -t f|ack '(\.cpp)|(\.cc)'| xargs ack "
 alias query="fd -t f|ack '(\.java)'| xargs ack "
 alias ask="fd -t f|ack '(\.h)'| xargs ack "
 alias history="fc -li 1"
 
-export JAVA_HOME="/usr/lib/jvm/java-19-openjdk"
+export JAVA_HOME="/usr/lib/jvm/java-20-openjdk"
 export PATH=$JAVA_HOME/bin:$PATH
+export PATH=~/bin:$PATH
 
 #alias fd="fdfind"
 export FZF_DEFAULT_COMMAND='fd --hidden --follow -E ".git" -E "node_modules" . /etc /home'
