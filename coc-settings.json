@@ -26,6 +26,7 @@
 		"value": "\uf89f",
 		"variable": "\ue71b"
 	},
+    "suggest.noselect" : true,
     "explorer.file.showHiddenFiles": true,
     "explorer.icon.enableNerdfont": true
 }
