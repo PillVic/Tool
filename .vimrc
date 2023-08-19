@@ -16,7 +16,7 @@ nnoremap \ :nohl<enter>
     set showcmd
     set showmode                     "左下角那一行的状态
     set laststatus=2                 "显示状态栏
-colorscheme   dante              "设定配色方案
+colorscheme   eva01              "设定配色方案
 set nu                           "在每一行前面显示行号
 set  relativenumber              "设置相对行号
 set bg=dark                      "显示不同的底色色调
@@ -58,13 +58,11 @@ nnoremap m zz
 nnoremap J zz
 "设置K为将当前行为屏幕最后一行
 nnoremap K zb
-    "针对lisp括号输入过多，使用[]替代"
-    autocmd BufNewFile,BufRead *.lisp imap [ (
-    autocmd BufNewFile,BufRead *.lisp imap ] )
-    autocmd BufNewFile,BufRead *.scm imap [ (
-    autocmd BufNewFile,BufRead *.scm imap ] )
-    autocmd BufNewFile,BufRead *.rkt imap [ (
-    autocmd BufNewFile,BufRead *.rkt imap ] )
+    "针对lisp括号输入过多，与[]交换"
+    autocmd BufNewFile,BufRead *.rkt,*.lisp inoremap [ (
+    autocmd BufNewFile,BufRead *.rkt,*.lisp inoremap ] )
+    autocmd BufNewFile,BufRead *.rkt,*.lisp inoremap ( [
+    autocmd BufNewFile,BufRead *.rkt,*.lisp inoremap ) ]
 let g:autoformat_verbosemode=1
 
 "记忆编辑位置
