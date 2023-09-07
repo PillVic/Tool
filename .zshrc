@@ -133,6 +133,9 @@ export JAVA_HOME="/usr/lib/jvm/java-20-openjdk"
 export PATH=$JAVA_HOME/bin:$PATH
 export PATH=~/bin:$PATH
 
+#acm oj
+source ~/Private-Reps/ACM/quick.sh
+
 #alias fd="fdfind"
 export FZF_DEFAULT_COMMAND='fd --hidden --follow -E ".git" -E "node_modules" . /etc /home'
 export FZF_DEFAULT_OPTS='--height 90% --layout=reverse --bind=alt-j:down,alt-k:up,alt-i:toggle+down --border --preview "echo {} | ~/Tool/fzf_preview.py"'

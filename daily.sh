@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/bin/env bash
+
+#desc 每日更新软件脚本
 
 #x: print the command before excute it
 #e: once a command fail (return no zero)
@@ -6,24 +8,23 @@
 #o pipefail: once a single pipe fail exit
 set -xeuo pipefail
 
-
-#更新软件源并更新软件
-sudo pacman -Syu
+yay -Syu
 
 gitUp(){
-    (path=$1
-    cd "$path"
+    repPath=$1
+    cd "${repPath}"
+    echo "rep ${repPath}"
     git pull
-    git gc)
+    git gc
 }
-cd Reps
-#所有git仓库都放在~/Reps目录下 统一更新, 文件名X开头表示拒绝更新
-for rep in `ls|ack -v "^X.*$"`
+#all repository  in ~/Reps
+for rep in $(cd ~/Reps && fd -ad 1)
 do
-    echo "upgrade github rep:$rep"
-    gitUp $rep
+    gitUp "${rep}"
 done
-vim +PlugUpdate +quit +quit
+
+#vim plug update
+vim +PlugUpgrade +PlugUpdate +quit +quit
+
 conda update --all -y
-conda clean -p
-conda clean -y --all
+conda clean --all -y
