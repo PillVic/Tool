@@ -26,5 +26,5 @@ done
 #vim plug update
 vim +PlugUpgrade +PlugUpdate +quit +quit
 
-conda update --all -y
-conda clean --all -y
+#conda update --all -y
+#conda clean --all -y

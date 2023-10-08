@@ -129,7 +129,7 @@ alias query="fd -t f|ack '(\.java)'| xargs ack "
 alias ask="fd -t f|ack '(\.h)'| xargs ack "
 alias history="fc -li 1"
 
-export JAVA_HOME="/usr/lib/jvm/java-20-openjdk"
+export JAVA_HOME="/usr/lib/jvm/java-21-openjdk"
 export PATH=$JAVA_HOME/bin:$PATH
 export PATH=~/bin:$PATH
 
