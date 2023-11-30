@@ -484,15 +484,19 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
         (local-set-key (kbd "<f5>") 'org-latex-preview)))
 (add-hook 'org-mode-hook
     (lambda ()
-        (local-set-key (kbd "<f6>") 'org-mark-ring-goto)))
-
-(setq configuration-layer-elpa-archives
-    '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-      ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
-      ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
+        (local-set-key (kbd "C-c 9") 'org-mark-ring-goto)))
 
 (setq org-ellipsis "↷")
 
+(setq url-proxy-services
+      '(("no_proxy" . "^\\(localhost\\|10.*\\)")
+        ("http" . "127.0.0.1:7890")        ;; notice without protocol, do NOT add protocol
+        ("https" . "127.0.0.1:7890")))
+
+(pixel-scroll-precision-mode 1)
+(setq pixel-scroll-precision-interpolate-page t)
+(defalias 'scroll-up-command 'pixel-scroll-interpolate-down)
+(defalias 'scroll-down-command 'pixel-scroll-interpolate-up)
 )
 
 (defun dotspacemacs/user-load ()
