@@ -127,6 +127,7 @@ alias deep="fd -t f|ack -v '(\.cpp)|(\.c)|(\.java)|()'| xargs ack "
 alias catch="fd -t f|ack '(\.cpp)|(\.cc)'| xargs ack "
 alias query="fd -t f|ack '(\.java)'| xargs ack "
 alias ask="fd -t f|ack '(\.h)'| xargs ack "
+alias view="vim -R"
 alias history="fc -li 1"
 
 export JAVA_HOME="/usr/lib/jvm/java-21-openjdk"
