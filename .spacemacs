@@ -481,7 +481,7 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
 (setq-default dotspacemacs-themes '(spacemacs-light monokai leuven zenburn))
 (add-hook 'org-mode-hook
     (lambda ()
-        (local-set-key (kbd "<f5>") 'org-latex-preview)))
+        (local-set-key (kbd "C-=") 'org-latex-preview)))
 (add-hook 'org-mode-hook
     (lambda ()
         (local-set-key (kbd "C-c 9") 'org-mark-ring-goto)))
