@@ -48,10 +48,7 @@ This function should only modify configuration layer settings."
      ;; lsp
      markdown
      multiple-cursors
-      ;;org
-     (org :packages (not org-contrib))
-      coq
-      lean
+      org
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
@@ -488,10 +485,10 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
 
 (setq org-ellipsis "↷")
 
-(setq url-proxy-services
-      '(("no_proxy" . "^\\(localhost\\|10.*\\)")
-        ("http" . "127.0.0.1:7890")        ;; notice without protocol, do NOT add protocol
-        ("https" . "127.0.0.1:7890")))
+;(setq url-proxy-services
+;      '(("no_proxy" . "^\\(localhost\\|10.*\\)")
+;        ("http" . "127.0.0.1:7890")        ;; notice without protocol, do NOT add protocol
+;        ("https" . "127.0.0.1:7890")))
 
 (pixel-scroll-precision-mode 1)
 (setq pixel-scroll-precision-interpolate-page t)
@@ -551,7 +548,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(compilation-message-face 'default)
  '(custom-safe-themes
-   '("2ddc248c3293bae06d642bdac7c0a2d73c450fce9defa0e83778f10787b2e3a8" "bbb13492a15c3258f29c21d251da1e62f1abb8bbd492386a673dcfab474186af" "4c56af497ddf0e30f65a7232a8ee21b3d62a8c332c6b268c81e9ea99b11da0d3" "7fd8b914e340283c189980cd1883dbdef67080ad1a3a9cc3df864ca53bdc89cf" "d9646b131c4aa37f01f909fbdd5a9099389518eb68f25277ed19ba99adeb7279" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "8b58ef2d23b6d164988a607ee153fd2fa35ee33efc394281b1028c2797ddeebb" "76bfa9318742342233d8b0b42e824130b3a50dcc732866ff8e47366aed69de11" "27a1dd6378f3782a593cc83e108a35c2b93e5ecc3bd9057313e1d88462701fcd" "2809bcb77ad21312897b541134981282dc455ccd7c14d74cc333b6e549b824f3" "4a201d19d8f7864e930fbb67e5c2029b558d26a658be1313b19b8958fe451b55" "8f567db503a0d27202804f2ee51b4cd409eab5c4374f57640317b8fcbbd3e466" default))
+   '("d74183b099f4e91052941ef3131c76697caae3fcf581f4c140216a7c6e6d71e2" "c7f838704d7caa88bc337464867c22af0a502e32154558b0f6c9c3c6e8650122" "ffafb0e9f63935183713b204c11d22225008559fa62133a69848835f4f4a758c" "8d3ef5ff6273f2a552152c7febc40eabca26bae05bd12bc85062e2dc224cde9a" "a1c18db2838b593fba371cb2623abd8f7644a7811ac53c6530eebdf8b9a25a8d" "2ddc248c3293bae06d642bdac7c0a2d73c450fce9defa0e83778f10787b2e3a8" "bbb13492a15c3258f29c21d251da1e62f1abb8bbd492386a673dcfab474186af" "4c56af497ddf0e30f65a7232a8ee21b3d62a8c332c6b268c81e9ea99b11da0d3" "7fd8b914e340283c189980cd1883dbdef67080ad1a3a9cc3df864ca53bdc89cf" "d9646b131c4aa37f01f909fbdd5a9099389518eb68f25277ed19ba99adeb7279" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "8b58ef2d23b6d164988a607ee153fd2fa35ee33efc394281b1028c2797ddeebb" "76bfa9318742342233d8b0b42e824130b3a50dcc732866ff8e47366aed69de11" "27a1dd6378f3782a593cc83e108a35c2b93e5ecc3bd9057313e1d88462701fcd" "2809bcb77ad21312897b541134981282dc455ccd7c14d74cc333b6e549b824f3" "4a201d19d8f7864e930fbb67e5c2029b558d26a658be1313b19b8958fe451b55" "8f567db503a0d27202804f2ee51b4cd409eab5c4374f57640317b8fcbbd3e466" default))
  '(evil-want-Y-yank-to-eol nil)
  '(fci-rule-color "#3C3D37")
  '(highlight-changes-colors '("#FD5FF0" "#AE81FF"))
