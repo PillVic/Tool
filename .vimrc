@@ -119,7 +119,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
     let g:coc_global_extensions = [
         \ 'coc-clangd',
         \ 'coc-sh',
-        \ 'coc-pyright',
         \ 'coc-marketplace',
         \ 'coc-json',
         \ 'coc-sql',
