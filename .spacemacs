@@ -485,6 +485,8 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
 
 (setq org-ellipsis "↷")
 
+(setq temporary-file-directory "~/.cache/emacs/")
+
 ;(setq url-proxy-services
 ;      '(("no_proxy" . "^\\(localhost\\|10.*\\)")
 ;        ("http" . "127.0.0.1:7890")        ;; notice without protocol, do NOT add protocol
@@ -520,7 +522,7 @@ before packages are loaded."
 							:image-output-type "svg"
 							:image-size-adjust (0.7 . 0.5)
 							:latex-compiler ("xelatex -interaction nonstopmode -no-pdf -output-directory %o %f")
-							:image-converter ("dvisvgm %f -n -b min -c %S -o %O")))
+							:image-converter ("dvisvgm %F -n -b min -c %S -o %O")))
 (setq org-preview-latex-default-process 'xdvsvgm)
 
 (plist-put org-format-latex-options :scale 4.5)
