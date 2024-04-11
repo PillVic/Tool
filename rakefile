@@ -1,10 +1,9 @@
 
 desc '从github安装所需仓库'
-task :installRep  do
+task :installRep => :buildRep do
    sh "git clone git@github.com:ohmyzsh/ohmyzsh.git ~/Reps/ohmyzsh"
    sh "git clone git@github.com:zdharma-continuum/fast-syntax-highlighting.git ~/Reps/fast-syntax-highlighting"
    sh "git clone git@github.com:romkatv/powerlevel10k.git ~/Reps/powerlevel10k"
-   sh "git clone git@github.com:gpakosz/.tmux.git  ~/Reps/ohmytmux"
    sh "git clone git@github.com:cdump/ranger-devicons2.git ~/Reps/ranger-devicons2"
    sh "git clone git@github.com:syl20bnr/spacemacs.git ~/Reps/spacemacs"
    sh "git clone git@github.com:ChestnutHeng/Wudao-dict.git ~/Reps/Wudao"
@@ -12,15 +11,11 @@ task :installRep  do
 end
 
 desc '配置仓库'
-task :configRep do
+task :configRep => :installRep do
    sh "ln -s ~/Reps/ohmyzsh ~/.oh-my-zsh"
    sh "ln -s ~/Reps/fast-syntax-highlighting ~/.oh-my-zsh/custom/plugins/"
    sh "ln -s ~/Reps/powerlevel10k ~/.oh-my-zsh/custom/themes/"
    sh "ln -s ~/Tool/.zshrc ~/"
-
-   sh "ln -s ~/Reps/ohmytmux ~/.tmux"
-   sh "ln -s ~/Reps/ohmytmux/.tmux.conf ~/.tmux.conf"
-   sh "ln -s ~/Tool/.tmutx.local ~/"
 
    sh "ln -s ~/Reps/ranger-devicons2 ~/.config/ranger/plugins/"
 
@@ -35,17 +30,17 @@ end
 desc '构造存放github库所需的文件结构'
 task :buildRep do
    sh "mkdir ~/Reps"
+   
+   #还需要配置git的ssh-key,在~/.ssh/下生成
+   #ssh-keygen -t rsa -C "youremail@example.com"
 end
 
 desc '配置vim'
-task :setVim do
+task :setVim => :installBase do
    sh "mkdir ~/.vim/undo-dir"
    sh "mkdir ~/.vim/swapfiles"
    sh "curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
    sh "ln -s ~/Tool/.vimrc ~/"
-
-   'npm换源， 加速coc插件下载'
-   sh "npm config set registry https://registry.npm.taobao.org"
 
    sh "vim +PlugInstall +quit +quit"
 end
@@ -53,8 +48,11 @@ end
 desc '安装基础软件'
 task :installBase do
    sh "sudo pacman -S yay"
-   sh "yay -S git vim emacs tmux htop tree curl shellcheck ack bat tldr unison"
+   sh "yay -S git vim emacs htop tree curl shellcheck ack bat tldr rclone"
    sh "yay -S ranger ueberzug ffmpegthumbnailer"
+
+   #network
+   sh "yay -S nekoray-bin"
 
    sh "sudo pip3 install lxml bs4"
 
@@ -63,11 +61,14 @@ task :installBase do
    sh "sudo ntpdate cn.pool.ntp.org"
    sh "sudo hwclock --localtime --systohc"
 
-   sh "yay -S openjdk-18-jdk maven"
+   sh "yay -S jdk-openjdk maven"
    sh "mysql mycli"
 
    #adding latex support for org mode
-   sh "yay -S texlive-latex-most texlive-latex-lang "
+   sh "yay -S texlive-full"
+
+   #install multi-media
+   sh "yay -S yesplaymusic linuxqq wechat-universal-bwrap"
 
    sh "yay -S latte-dock"
 end
