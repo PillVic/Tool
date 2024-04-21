@@ -485,6 +485,10 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
 
 (setq org-ellipsis "↷")
 
+;; 设置 Org Agenda 快捷键
+(global-set-key (kbd "C-c a") 'org-agenda)
+(setq org-agenda-files (list "~/.org-agenda/"))
+
 (setq temporary-file-directory "~/.cache/emacs/")
 
 ;(setq url-proxy-services
