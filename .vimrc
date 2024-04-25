@@ -87,6 +87,8 @@ set splitright
 
 "安装插件
 call plug#begin('~/.vim/plugged')
+    "配置插件安装采用ssh访问github
+    let g:plug_url_format = 'git@github.com:%s.git'
     "编译运行环境插件设置
     Plug 'tmhedberg/SimpylFold'                                          "安装自动缩进插件
     Plug 'skywind3000/asynctasks.vim'                                    "设置编译环境

@@ -28,5 +28,6 @@
 	},
     "suggest.noselect" : true,
     "explorer.file.showHiddenFiles": true,
-    "explorer.icon.enableNerdfont": true
+    "explorer.icon.enableNerdfont": true,
+    "http.proxy": "https://127.0.0.1:7890"
 }
