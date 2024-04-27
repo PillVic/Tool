@@ -138,7 +138,6 @@ export PATH=~/bin:$PATH
 
 # 设置 http 代理(for yay)
 #export http_proxy=http://127.0.0.1:7890
-#export https_pxory=https://127.0.0.1:7890
 
 #acm oj
 source ~/Private-Reps/ACM/quick.sh
