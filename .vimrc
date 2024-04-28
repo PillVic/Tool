@@ -104,7 +104,6 @@ Plug 'luochen1990/rainbow'                                           "括号染�
 let g:rainbow_active = 1
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-fugitive'                                            "安装GIT集成工具
-Plug 'solarnz/thrift.vim'
 Plug 'vim-airline/vim-airline'                                       "安装airline状态栏插件
 Plug 'Chiel92/vim-autoformat'                                        "安装格式化插件
 Plug 'vim-airline/vim-airline-themes'				                 "airline主题配件
