@@ -23,6 +23,7 @@ task :configRep => :installRep do
    sh "ln -s ~/Tool/.spacemacs ~/"
 
    sh "ln -s ~/Reps/vim-colorschemes/colors ~/.vim/"
+   sh "ln -s ~/Reps/vim-colorschemes/scripts ~/.vim/"
 
    sh "cd ~/Reps/Wudao-dict;sudo bash setup.sh"
 end
