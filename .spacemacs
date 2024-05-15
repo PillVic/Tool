@@ -221,7 +221,7 @@ It should only modify the values of Spacemacs settings."
 
    ;; Default font or prioritized list of fonts.
    dotspacemacs-default-font '("Ubuntu Mono"
-                               :size 18.0
+                               :size 26.0
                                :weight normal
                                :width normal)
 
@@ -529,7 +529,7 @@ before packages are loaded."
 							:image-converter ("dvisvgm %F -n -b min -c %S -o %O")))
 (setq org-preview-latex-default-process 'xdvsvgm)
 
-(plist-put org-format-latex-options :scale 4.5)
+(plist-put org-format-latex-options :scale 3.0)
 
 (add-to-list 'org-latex-packages-alist '("" "ctex"))
 

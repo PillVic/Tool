@@ -49,13 +49,16 @@ end
 desc '安装基础软件'
 task :installBase do
    sh "sudo pacman -S yay"
-   sh "yay -S git vim emacs htop tree curl shellcheck ack bat tldr rclone"
-   sh "yay -S ranger ueberzug ffmpegthumbnailer"
+   sh "yay -S git vim emacs-wayland htop tree curl shellcheck ack bat tldr rclone"
+   sh "yay -S ranger ffmpegthumbnailer"
 
    #network
    sh "yay -S nekoray-bin"
 
    sh "sudo pip3 install lxml bs4"
+
+   #安装中文输入法fctix5(wayland必须使用fcitx5)
+   sh "yay -S fcitx5  fcitx5-configtool fcitx5-qt fcitx5-gtk fcitx-chinese-addons kcm-fcitx5 fcitx5-lua fcitx5-pinyin-zhwiki"
 
    #time set
    sh "yay -S install ntpdate"
@@ -70,6 +73,4 @@ task :installBase do
 
    #install multi-media
    sh "yay -S yesplaymusic linuxqq wechat-universal-bwrap"
-
-   sh "yay -S latte-dock"
 end
