@@ -49,7 +49,7 @@ end
 desc '安装基础软件'
 task :installBase do
    sh "sudo pacman -S yay"
-   sh "yay -S git vim emacs-wayland htop tree curl shellcheck ack bat tldr rclone"
+   sh "yay -S git vim emacs-wayland htop tree curl shellcheck ack bat tldr rclone lazygit tig"
    sh "yay -S ranger ffmpegthumbnailer"
 
    #network
