@@ -525,7 +525,7 @@ before packages are loaded."
 							:image-input-type "xdv"
 							:image-output-type "svg"
 							:image-size-adjust (0.7 . 0.5)
-							:latex-compiler ("xelatex -interaction nonstopmode -no-pdf -output-directory %o %f")
+							:latex-compiler ("xelatex -interaction nonstopmode -no-pdf -output-directory %o %F")
 							:image-converter ("dvisvgm %F -n -b min -c %S -o %O")))
 (setq org-preview-latex-default-process 'xdvsvgm)
 
