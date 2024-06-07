@@ -124,14 +124,16 @@ alias vi='vim'
 alias batcat="bat"
 alias tailf="tail -f"
 alias ls="exa"
-alias deep="fd -t f|ack -v '(\.cpp)|(\.c)|(\.java)|()'| xargs ack "
-alias catch="fd -t f|ack '(\.cpp)|(\.cc)'| xargs ack "
-alias query="fd -t f|ack '(\.java)'| xargs ack "
-alias ask="fd -t f|ack '(\.h)'| xargs ack "
 alias view="vim -R"
 alias alfd="fd --no-ignore-vcs"
 alias lg="lazygit"
 alias history="fc -li 1"
+#file content search
+alias search="fd -t f|ack -v '(\.cpp)|(\.c)|(\.java)|()'| xargs ack "
+alias cope="fd -t f|ack '(\.cpp)|(\.cc)'| xargs ack "
+alias ask="fd -t f|ack '(\.java)'| xargs ack "
+alias hunt="fd -t f|ack '(\.h)'| xargs ack "
+alias origin="fd -t f|ack '(\.org)'| xargs ack "
 
 export JAVA_HOME="/usr/lib/jvm/java-21-openjdk"
 export PATH=$JAVA_HOME/bin:$PATH
