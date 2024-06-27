@@ -33,8 +33,7 @@ This function should only modify configuration layer settings."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(racket
-     html
-     markdown
+     ;;html
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
@@ -56,7 +55,7 @@ This function should only modify configuration layer settings."
      ;; syntax-checking
      ;; version-control
      treemacs
-     themes-megapack
+     ;;themes-megapack
      )
 
    ;; List of additional packages that will be installed without being
@@ -475,7 +474,7 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
-(setq-default dotspacemacs-themes '(spacemacs-light monokai leuven zenburn))
+(setq-default dotspacemacs-themes '(spacemacs-light spacemacs-dark))
 (add-hook 'org-mode-hook
     (lambda ()
         (local-set-key (kbd "C-=") 'org-latex-preview)))
