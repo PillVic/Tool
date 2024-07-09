@@ -1,25 +1,26 @@
 
 desc '从github安装所需仓库'
 task :installRep => :buildRep do
-   sh "git clone git@github.com:ohmyzsh/ohmyzsh.git ~/Reps/ohmyzsh"
-   sh "git clone git@github.com:zdharma-continuum/fast-syntax-highlighting.git ~/Reps/fast-syntax-highlighting"
-   sh "git clone git@github.com:romkatv/powerlevel10k.git ~/Reps/powerlevel10k"
-   sh "git clone git@github.com:cdump/ranger-devicons2.git ~/Reps/ranger-devicons2"
-   sh "git clone git@github.com:syl20bnr/spacemacs.git ~/Reps/spacemacs"
+   sh "git clone git@github.com:ohmyzsh/ohmyzsh.git ~/Reps/.oh-my-zsh"
+   sh "git clone git@github.com:zdharma-continuum/fast-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/"
+   sh "git clone git@github.com:romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/"
+   sh "git clone git@github.com:cdump/ranger-devicons2.git ~/.config/ranger/plugins/"
+   sh "git clone git@github.com:syl20bnr/spacemacs.git ~/.emacs.d"
+
    sh "git clone git@github.com:ChestnutHeng/Wudao-dict.git ~/Reps/Wudao"
    sh "git clone git@github.com:flazz/vim-colorschemes.git ~/Reps/vim-colorschemes"
 end
 
 desc '配置仓库'
 task :configRep => :installRep do
-   sh "ln -s ~/Reps/ohmyzsh ~/.oh-my-zsh"
-   sh "ln -s ~/Reps/fast-syntax-highlighting ~/.oh-my-zsh/custom/plugins/"
-   sh "ln -s ~/Reps/powerlevel10k ~/.oh-my-zsh/custom/themes/"
-   sh "ln -s ~/Tool/.zshrc ~/"
+   sh "ln -s ~/.oh-my-zsh ~/Reps/ohmyzsh"
+   sh "ln -s ~/.oh-my-zsh/custom/plugins/fast-syntax-highlighting ~/Reps/"
+   sh "ln -s ~/.oh-my-zsh/custom/themes/powerlevel10k ~/Reps/"
+   sh "ln -s ~/Tool/.zshrc ~/.zshrc"
 
-   sh "ln -s ~/Reps/ranger-devicons2 ~/.config/ranger/plugins/"
+   sh "ln -s ~/.config/ranger/plugins/ranger-devicons2 ~/Reps/"
 
-   sh "ln -s ~/Reps/spacemacs ~/.emacs.d"
+   sh "ln -s ~/.emacs.d ~/Reps/spacemacs"
    sh "ln -s ~/Tool/.spacemacs ~/"
 
    sh "ln -s ~/Reps/vim-colorschemes/colors ~/.vim/"
