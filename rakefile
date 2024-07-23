@@ -53,6 +53,9 @@ task :installBase do
    sh "yay -S git vim emacs-wayland htop tree curl shellcheck ack bat tldr rclone lazygit tig"
    sh "yay -S ranger ffmpegthumbnailer"
 
+   #电源管理
+   sh "yay -S power-profiles-daemon"
+
    #network
    sh "yay -S nekoray-bin"
 
