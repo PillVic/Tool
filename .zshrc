@@ -138,8 +138,6 @@ alias search-org="fd -t file|ack '(\.org)'| xargs ack "
 #clean org-mode latex formula preview svg cache
 alias clean-org-cache="fd --no-ignore -t file |ack ltximg|xargs rm"
 
-export JAVA_HOME="/usr/lib/jvm/java-21-openjdk"
-export PATH=$JAVA_HOME/bin:$PATH
 export PATH=~/bin:$PATH
 
 # 设置 http 代理(for yay)
