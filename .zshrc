@@ -129,11 +129,14 @@ alias alfd="fd --no-ignore-vcs"
 alias lg="lazygit"
 alias history="fc -li 1"
 #file content search
-alias search="fd -t f|ack -v '(\.cpp)|(\.c)|(\.java)|()'| xargs ack "
-alias cope="fd -t f|ack '(\.cpp)|(\.cc)'| xargs ack "
-alias ask="fd -t f|ack '(\.java)'| xargs ack "
-alias hunt="fd -t f|ack '(\.h)'| xargs ack "
-alias origin="fd -t f|ack '(\.org)'| xargs ack "
+alias search-code="fd -t file|ack -v '(\.cpp)|(\.c)|(\.java)|()'| xargs ack "
+alias search-cpp="fd -t file|ack '(\.cpp)|(\.cc)'| xargs ack "
+alias search-java="fd -t file|ack '(\.java)'| xargs ack "
+alias search-chead="fd -t file|ack '(\.h)'| xargs ack "
+alias search-org="fd -t file|ack '(\.org)'| xargs ack "
+
+#clean org-mode latex formula preview svg cache
+alias clean-org-cache="fd --no-ignore -t file |ack ltximg|xargs rm"
 
 export JAVA_HOME="/usr/lib/jvm/java-21-openjdk"
 export PATH=$JAVA_HOME/bin:$PATH
