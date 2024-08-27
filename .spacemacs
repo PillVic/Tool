@@ -43,11 +43,15 @@ This function should only modify configuration layer settings."
      ;; better-defaults
      emacs-lisp
      ;; git
-     helm
+     ;;helm
+     (ivy :variables
+          ivy-enable-advanced-buffer-information t
+          ivy-enable-icons t)
      ;; lsp
      markdown
      multiple-cursors
-      org
+     (org :variables 
+          org-enable-modern-support t)
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
@@ -323,7 +327,7 @@ It should only modify the values of Spacemacs settings."
    ;; If non-nil the frame is maximized when Emacs starts up.
    ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
    ;; (default nil) (Emacs 24.4+ only)
-   dotspacemacs-maximized-at-startup nil
+   dotspacemacs-maximized-at-startup t
 
    ;; If non-nil the frame is undecorated when Emacs starts up. Combine this
    ;; variable with `dotspacemacs-maximized-at-startup' in OSX to obtain
@@ -431,7 +435,7 @@ It should only modify the values of Spacemacs settings."
    ;; %z - mnemonics of buffer, terminal, and keyboard coding systems
    ;; %Z - like %z, but including the end-of-line format
    ;; (default "%I@%S")
-   dotspacemacs-frame-title-format "%I@%S"
+   dotspacemacs-frame-title-format "%b@%m"
 
    ;; Format specification for setting the icon title format
    ;; (default nil - same as frame-title-format)
@@ -474,32 +478,27 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
-(setq-default dotspacemacs-themes '(spacemacs-light spacemacs-dark))
-(add-hook 'org-mode-hook
-    (lambda ()
-        (local-set-key (kbd "C-=") 'org-latex-preview)))
-(add-hook 'org-mode-hook
-    (lambda ()
-        (local-set-key (kbd "C-c 9") 'org-mark-ring-goto)))
+  (setq-default dotspacemacs-themes '(spacemacs-light spacemacs-dark))
+  (add-hook 'org-mode-hook
+            (lambda ()
+              (local-set-key (kbd "C-=") 'org-latex-preview)))
+  (add-hook 'org-mode-hook
+            (lambda ()
+              (local-set-key (kbd "C-c 9") 'org-mark-ring-goto)))
 
-(setq org-ellipsis "↷")
+  (setq org-ellipsis "↷")
 
-;; 设置 Org Agenda 快捷键
-(global-set-key (kbd "C-c a") 'org-agenda)
-(setq org-agenda-files (list "~/.org-agenda/"))
+  ;; 设置 Org Agenda 快捷键
+  (global-set-key (kbd "C-c a") 'org-agenda)
+  (setq org-agenda-files (list "~/.org-agenda/"))
 
-(setq temporary-file-directory "~/.cache/emacs/")
+  (setq temporary-file-directory "~/.cache/emacs/")
 
-;(setq url-proxy-services
-;      '(("no_proxy" . "^\\(localhost\\|10.*\\)")
-;        ("http" . "127.0.0.1:7890")        ;; notice without protocol, do NOT add protocol
-;        ("https" . "127.0.0.1:7890")))
-
-(pixel-scroll-precision-mode 1)
-(setq pixel-scroll-precision-interpolate-page t)
-(defalias 'scroll-up-command 'pixel-scroll-interpolate-down)
-(defalias 'scroll-down-command 'pixel-scroll-interpolate-up)
-)
+  (pixel-scroll-precision-mode 1)
+  (setq pixel-scroll-precision-interpolate-page t)
+  (defalias 'scroll-up-command 'pixel-scroll-interpolate-down)
+  (defalias 'scroll-down-command 'pixel-scroll-interpolate-up)
+  )
 
 (defun dotspacemacs/user-load ()
   "Library to load while dumping.
@@ -514,30 +513,30 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
-(setq org-latex-create-formula-image-program 'dvipng)
-(require 'org)
+  (setq org-latex-create-formula-image-program 'dvipng)
+  (require 'org)
 
-(add-to-list 'org-preview-latex-process-alist '(xdvsvgm :progams
-							("xelatex" "dvisvgm")
-							:discription "xdv > svg"
-							:message "you need install the programs: xelatex and dvisvgm."
-							:image-input-type "xdv"
-							:image-output-type "svg"
-							:image-size-adjust (0.7 . 0.5)
-							:latex-compiler ("xelatex -interaction nonstopmode -no-pdf -output-directory %o %F")
-							:image-converter ("dvisvgm %F -n -b min -c %S -o %O")))
-(setq org-preview-latex-default-process 'xdvsvgm)
+  (add-to-list 'org-preview-latex-process-alist '(xdvsvgm :progams
+                                                          ("xelatex" "dvisvgm")
+                                                          :discription "xdv > svg"
+                                                          :message "you need install the programs: xelatex and dvisvgm."
+                                                          :image-input-type "xdv"
+                                                          :image-output-type "svg"
+                                                          :image-size-adjust (0.7 . 0.5)
+                                                          :latex-compiler ("xelatex -interaction nonstopmode -no-pdf -output-directory %o %F")
+                                                          :image-converter ("dvisvgm %F -n -b min -c %S -o %O")))
+  (setq org-preview-latex-default-process 'xdvsvgm)
 
-(plist-put org-format-latex-options :scale 3.0)
+  (plist-put org-format-latex-options :scale 3.0)
 
-(add-to-list 'org-latex-packages-alist '("" "ctex"))
+  (add-to-list 'org-latex-packages-alist '("" "ctex"))
 
-(setq org-latex-pdf-process '("xelatex -interaction nonstopmode %f"
-                              "xelatex -interaction nonstopmode %f"))
-(setq org-latex-default-packages-alist
-     (remove '("AUTO" "inputenc" t) org-latex-default-packages-alist))
+  (setq org-latex-pdf-process '("xelatex -interaction nonstopmode %f"
+                                "xelatex -interaction nonstopmode %f"))
+  (setq org-latex-default-packages-alist
+        (remove '("AUTO" "inputenc" t) org-latex-default-packages-alist))
 
-)
+  )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -546,61 +545,61 @@ before packages are loaded."
 This is an auto-generated function, do not modify its content directly, use
 Emacs customize menu instead.
 This function is called at the very end of Spacemacs initialization."
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(compilation-message-face 'default)
- '(custom-safe-themes
-   '("d74183b099f4e91052941ef3131c76697caae3fcf581f4c140216a7c6e6d71e2" "c7f838704d7caa88bc337464867c22af0a502e32154558b0f6c9c3c6e8650122" "ffafb0e9f63935183713b204c11d22225008559fa62133a69848835f4f4a758c" "8d3ef5ff6273f2a552152c7febc40eabca26bae05bd12bc85062e2dc224cde9a" "a1c18db2838b593fba371cb2623abd8f7644a7811ac53c6530eebdf8b9a25a8d" "2ddc248c3293bae06d642bdac7c0a2d73c450fce9defa0e83778f10787b2e3a8" "bbb13492a15c3258f29c21d251da1e62f1abb8bbd492386a673dcfab474186af" "4c56af497ddf0e30f65a7232a8ee21b3d62a8c332c6b268c81e9ea99b11da0d3" "7fd8b914e340283c189980cd1883dbdef67080ad1a3a9cc3df864ca53bdc89cf" "d9646b131c4aa37f01f909fbdd5a9099389518eb68f25277ed19ba99adeb7279" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "8b58ef2d23b6d164988a607ee153fd2fa35ee33efc394281b1028c2797ddeebb" "76bfa9318742342233d8b0b42e824130b3a50dcc732866ff8e47366aed69de11" "27a1dd6378f3782a593cc83e108a35c2b93e5ecc3bd9057313e1d88462701fcd" "2809bcb77ad21312897b541134981282dc455ccd7c14d74cc333b6e549b824f3" "4a201d19d8f7864e930fbb67e5c2029b558d26a658be1313b19b8958fe451b55" "8f567db503a0d27202804f2ee51b4cd409eab5c4374f57640317b8fcbbd3e466" default))
- '(evil-want-Y-yank-to-eol nil)
- '(fci-rule-color "#3C3D37")
- '(highlight-changes-colors '("#FD5FF0" "#AE81FF"))
- '(highlight-tail-colors
-   '(("#3C3D37" . 0)
-     ("#679A01" . 20)
-     ("#4BBEAE" . 30)
-     ("#1DB4D0" . 50)
-     ("#9A8F21" . 60)
-     ("#A75B00" . 70)
-     ("#F309DF" . 85)
-     ("#3C3D37" . 100)))
- '(magit-diff-use-overlays nil)
- '(package-selected-packages
-   '(yasnippet web-mode web-beautify tagedit slim-mode scss-mode sass-mode pug-mode prettier-js impatient-mode simple-httpd helm-css-scss haml-mode emmet-mode counsel-css counsel swiper ivy company-web web-completion-data add-node-modules-path vmd-mode mmm-mode markdown-toc markdown-mode gh-md emoji-cheat-sheet-plus company-emoji company zenburn-theme zen-and-art-theme ws-butler writeroom-mode winum white-sand-theme which-key volatile-highlights vi-tilde-fringe uuidgen use-package underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme treemacs-projectile treemacs-persp treemacs-icons-dired treemacs-evil toxi-theme toc-org tao-theme tangotango-theme tango-plus-theme tango-2-theme symon symbol-overlay sunny-day-theme sublime-themes subatomic256-theme subatomic-theme string-inflection spaceline-all-the-icons spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme seti-theme reverse-theme restart-emacs request rebecca-theme rainbow-delimiters railscasts-theme purple-haze-theme professional-theme popwin planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme pcre2el password-generator paradox overseer organic-green-theme org-superstar org-projectile org-present org-pomodoro org-mime org-download org-cliplink org-brain open-junk-file omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme noctilux-theme naquadah-theme nameless mustang-theme move-text monokai-theme monochrome-theme molokai-theme moe-theme modus-vivendi-theme modus-operandi-theme minimal-theme material-theme majapahit-theme madhat2r-theme macrostep lush-theme lorem-ipsum link-hint light-soap-theme kaolin-themes jbeans-theme jazz-theme ir-black-theme inkpot-theme indent-guide hybrid-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation heroku-theme hemisu-theme helm-xref helm-themes helm-swoop helm-purpose helm-projectile helm-org-rifle helm-org helm-mode-manager helm-make helm-ls-git helm-flx helm-descbinds helm-ag hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme google-translate golden-ratio gnuplot gandalf-theme font-lock+ flycheck-package flycheck-elsa flx-ido flatui-theme flatland-theme fill-column-indicator farmhouse-theme fancy-battery eziam-theme eyebrowse expand-region exotica-theme evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu espresso-theme emr elisp-slime-nav editorconfig dumb-jump dracula-theme dotenv-mode doom-themes django-theme diminish devdocs define-word darktooth-theme darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme column-enforce-mode color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized clues-theme clean-aindent-mode chocolate-theme cherry-blossom-theme centered-cursor-mode busybee-theme bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme auto-highlight-symbol auto-compile apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes aggressive-indent afternoon-theme ace-link ace-jump-helm-line))
- '(pos-tip-background-color "#FFFACE")
- '(pos-tip-foreground-color "#272822")
- '(vc-annotate-background nil)
- '(vc-annotate-color-map
-   '((20 . "#F92672")
-     (40 . "#CF4F1F")
-     (60 . "#C26C0F")
-     (80 . "#E6DB74")
-     (100 . "#AB8C00")
-     (120 . "#A18F00")
-     (140 . "#989200")
-     (160 . "#8E9500")
-     (180 . "#A6E22E")
-     (200 . "#729A1E")
-     (220 . "#609C3C")
-     (240 . "#4E9D5B")
-     (260 . "#3C9F79")
-     (280 . "#A1EFE4")
-     (300 . "#299BA6")
-     (320 . "#2896B5")
-     (340 . "#2790C3")
-     (360 . "#66D9EF")))
- '(vc-annotate-very-old-color nil)
- '(weechat-color-list
-   '(unspecified "#272822" "#3C3D37" "#F70057" "#F92672" "#86C30D" "#A6E22E" "#BEB244" "#E6DB74" "#40CAE4" "#66D9EF" "#FB35EA" "#FD5FF0" "#74DBCD" "#A1EFE4" "#F8F8F2" "#F8F8F0")))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-)
+  (custom-set-variables
+   ;; custom-set-variables was added by Custom.
+   ;; If you edit it by hand, you could mess it up, so be careful.
+   ;; Your init file should contain only one such instance.
+   ;; If there is more than one, they won't work right.
+   '(compilation-message-face 'default)
+   '(custom-safe-themes
+     '("d74183b099f4e91052941ef3131c76697caae3fcf581f4c140216a7c6e6d71e2" "c7f838704d7caa88bc337464867c22af0a502e32154558b0f6c9c3c6e8650122" "ffafb0e9f63935183713b204c11d22225008559fa62133a69848835f4f4a758c" "8d3ef5ff6273f2a552152c7febc40eabca26bae05bd12bc85062e2dc224cde9a" "a1c18db2838b593fba371cb2623abd8f7644a7811ac53c6530eebdf8b9a25a8d" "2ddc248c3293bae06d642bdac7c0a2d73c450fce9defa0e83778f10787b2e3a8" "bbb13492a15c3258f29c21d251da1e62f1abb8bbd492386a673dcfab474186af" "4c56af497ddf0e30f65a7232a8ee21b3d62a8c332c6b268c81e9ea99b11da0d3" "7fd8b914e340283c189980cd1883dbdef67080ad1a3a9cc3df864ca53bdc89cf" "d9646b131c4aa37f01f909fbdd5a9099389518eb68f25277ed19ba99adeb7279" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "8b58ef2d23b6d164988a607ee153fd2fa35ee33efc394281b1028c2797ddeebb" "76bfa9318742342233d8b0b42e824130b3a50dcc732866ff8e47366aed69de11" "27a1dd6378f3782a593cc83e108a35c2b93e5ecc3bd9057313e1d88462701fcd" "2809bcb77ad21312897b541134981282dc455ccd7c14d74cc333b6e549b824f3" "4a201d19d8f7864e930fbb67e5c2029b558d26a658be1313b19b8958fe451b55" "8f567db503a0d27202804f2ee51b4cd409eab5c4374f57640317b8fcbbd3e466" default))
+   '(evil-want-Y-yank-to-eol nil)
+   '(fci-rule-color "#3C3D37")
+   '(highlight-changes-colors '("#FD5FF0" "#AE81FF"))
+   '(highlight-tail-colors
+     '(("#3C3D37" . 0)
+       ("#679A01" . 20)
+       ("#4BBEAE" . 30)
+       ("#1DB4D0" . 50)
+       ("#9A8F21" . 60)
+       ("#A75B00" . 70)
+       ("#F309DF" . 85)
+       ("#3C3D37" . 100)))
+   '(magit-diff-use-overlays nil)
+   '(package-selected-packages
+     '(all-the-icons-yasnippet web-mode web-beautify tagedit slim-mode scss-mode sass-mode pug-mode prettier-js impatient-mode simple-httpd helm-css-scss haml-mode emmet-mode counsel-css counsel swiper company-web web-completion-data add-node-modules-path vmd-mode mmm-mode markdown-toc markdown-mode gh-md emoji-cheat-sheet-plus company-emoji company zenburn-theme zen-and-art-theme ws-butler writeroom-mode winum white-sand-theme which-key volatile-highlights vi-tilde-fringe uuidgen use-package underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme treemacs-projectile treemacs-persp treemacs-icons-dired treemacs-evil toxi-theme toc-org tao-theme tangotango-theme tango-plus-theme tango-2-theme symon symbol-overlay sunny-day-theme sublime-themes subatomic256-theme subatomic-theme string-inflection spaceline-all-the-icons spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme seti-theme reverse-theme restart-emacs request rebecca-theme rainbow-delimiters railscasts-theme purple-haze-theme professional-theme popwin planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme pcre2el password-generator paradox overseer organic-green-theme org-superstar org-projectile org-present org-pomodoro org-mime org-download org-cliplink org-brain open-junk-file omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme noctilux-theme naquadah-theme nameless mustang-theme move-text monokai-theme monochrome-theme molokai-theme moe-theme modus-vivendi-theme modus-operandi-theme minimal-theme material-theme majapahit-theme madhat2r-theme macrostep lush-theme lorem-ipsum link-hint light-soap-theme kaolin-themes jbeans-theme jazz-theme ir-black-theme inkpot-theme indent-guide hybrid-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation heroku-theme hemisu-theme helm-xref helm-themes helm-swoop helm-purpose helm-projectile helm-org-rifle helm-org helm-mode-manager helm-make helm-ls-git helm-flx helm-descbinds helm-ag hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme google-translate golden-ratio gnuplot gandalf-theme font-lock+ flycheck-package flycheck-elsa flx-ido flatui-theme flatland-theme fill-column-indicator farmhouse-theme fancy-battery eziam-theme eyebrowse expand-region exotica-theme evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu espresso-theme emr elisp-slime-nav editorconfig dumb-jump dracula-theme dotenv-mode doom-themes django-theme diminish devdocs define-word darktooth-theme darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme column-enforce-mode color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized clues-theme clean-aindent-mode chocolate-theme cherry-blossom-theme centered-cursor-mode busybee-theme bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme auto-highlight-symbol auto-compile apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes aggressive-indent afternoon-theme ace-link ace-jump-helm-line))
+   '(pos-tip-background-color "#FFFACE")
+   '(pos-tip-foreground-color "#272822")
+   '(vc-annotate-background nil)
+   '(vc-annotate-color-map
+     '((20 . "#F92672")
+       (40 . "#CF4F1F")
+       (60 . "#C26C0F")
+       (80 . "#E6DB74")
+       (100 . "#AB8C00")
+       (120 . "#A18F00")
+       (140 . "#989200")
+       (160 . "#8E9500")
+       (180 . "#A6E22E")
+       (200 . "#729A1E")
+       (220 . "#609C3C")
+       (240 . "#4E9D5B")
+       (260 . "#3C9F79")
+       (280 . "#A1EFE4")
+       (300 . "#299BA6")
+       (320 . "#2896B5")
+       (340 . "#2790C3")
+       (360 . "#66D9EF")))
+   '(vc-annotate-very-old-color nil)
+   '(weechat-color-list
+     '(unspecified "#272822" "#3C3D37" "#F70057" "#F92672" "#86C30D" "#A6E22E" "#BEB244" "#E6DB74" "#40CAE4" "#66D9EF" "#FB35EA" "#FD5FF0" "#74DBCD" "#A1EFE4" "#F8F8F2" "#F8F8F0")))
+  (custom-set-faces
+   ;; custom-set-faces was added by Custom.
+   ;; If you edit it by hand, you could mess it up, so be careful.
+   ;; Your init file should contain only one such instance.
+   ;; If there is more than one, they won't work right.
+   )
+  )
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
