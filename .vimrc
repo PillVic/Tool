@@ -42,6 +42,7 @@ set smartindent                  "换行时智能缩进
 inoremap <C-j> <ESC>
 set shiftwidth=4                 "设置缩进为4个空格 
 set clipboard=unnamedplus        "剪贴板和系统互通
+nnoremap f :Autoformat <enter>
 
 "tab设置为4个空格
 set ts=4
