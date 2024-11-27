@@ -56,12 +56,13 @@ task :installBase do
 
    #电源管理
    sh "yay -S power-profiles-daemon tlp tlpui tlp-rdw"
+   sh "sudo systemctl enable power-profiles-daemon"
    #启用tlp和tlp-sleep服务
-   sh "sudo systemctl enable tlp.service"
+   #sh "sudo systemctl enable tlp.service"
    #sh "sudo systemctl enable tlp-sleep.service"
    #屏蔽以下服务以避免冲突，并确保 TLP 的无线电设备切换选项的正确操作
-   sh "sudo systemctl mask systemd-rfkill.service"
-   sh "sudo sudo systemctl mask systemd-rfkill.socket"
+   #sh "sudo systemctl mask systemd-rfkill.service"
+   #sh "sudo sudo systemctl mask systemd-rfkill.socket"
 
 
    #network
