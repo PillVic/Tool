@@ -486,6 +486,14 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
             (lambda ()
               (local-set-key (kbd "C-c 9") 'org-mark-ring-goto)))
 
+  ;; 整屏幕打开新文件
+  (setq org-link-frame-setup '( 
+    (vm . vm-visit-folder) 
+    (vm-imap . vm-visit-imap-folder) 
+    (gnus . gnus) 
+    (file . find-file) 
+    (wl . wl-frame) ))
+
   (setq org-ellipsis "↷")
 
   ;; 设置 Org Agenda 快捷键
