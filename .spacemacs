@@ -479,33 +479,7 @@ configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
   (setq-default dotspacemacs-themes '(spacemacs-light spacemacs-dark))
-  (add-hook 'org-mode-hook
-            (lambda ()
-              (local-set-key (kbd "C-=") 'org-latex-preview)))
-  (add-hook 'org-mode-hook
-            (lambda ()
-              (local-set-key (kbd "C-c 9") 'org-mark-ring-goto)))
 
-  ;; 整屏幕打开新文件
-  (setq org-link-frame-setup '( 
-    (vm . vm-visit-folder) 
-    (vm-imap . vm-visit-imap-folder) 
-    (gnus . gnus) 
-    (file . find-file) 
-    (wl . wl-frame) ))
-
-  (setq org-ellipsis "↷")
-
-  ;; 设置 Org Agenda 快捷键
-  (global-set-key (kbd "C-c a") 'org-agenda)
-  (setq org-agenda-files (list "~/.org-agenda/"))
-
-  (setq temporary-file-directory "~/.cache/emacs/")
-
-  (pixel-scroll-precision-mode 1)
-  (setq pixel-scroll-precision-interpolate-page t)
-  (defalias 'scroll-up-command 'pixel-scroll-interpolate-down)
-  (defalias 'scroll-down-command 'pixel-scroll-interpolate-up)
   )
 
 (defun dotspacemacs/user-load ()
@@ -521,9 +495,10 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
-  (setq org-latex-create-formula-image-program 'dvipng)
-  (require 'org)
 
+  (require 'org)
+  ;;org-mode latex公式预览配置支持(\mbox形式支持中文)
+  (setq org-latex-create-formula-image-program 'dvipng)
   (add-to-list 'org-preview-latex-process-alist '(xdvsvgm :progams
                                                           ("xelatex" "dvisvgm")
                                                           :discription "xdv > svg"
@@ -544,6 +519,46 @@ before packages are loaded."
   (setq org-latex-default-packages-alist
         (remove '("AUTO" "inputenc" t) org-latex-default-packages-alist))
 
+  ;;org-mode改换折叠符号
+  (setq org-ellipsis "↷")
+
+  ;;org-mode整屏幕打开链接
+  (setq org-link-frame-setup '( (vm . vm-visit-folder)
+                                (vm-imap . vm-visit-imap-folder)
+                                (gnus . gnus)
+                                (file . find-file)
+                                (wl . wl-frame) ))
+
+  ;;org mode相关快捷键配置
+  ;;latex数学公式预览
+  (add-hook 'org-mode-hook
+    (lambda ()
+      (local-set-key (kbd "C-=") 'org-latex-preview)))
+  ;;跳转超链接后退
+  (add-hook 'org-mode-hook
+    (lambda ()
+      (define-key evil-normal-state-local-map
+        (kbd "t") 'org-mark-ring-goto)))
+  ;; 设置 Org Agenda 快捷键
+  (global-set-key (kbd "C-c a") 'org-agenda)
+  (setq org-agenda-files (list "~/.org-agenda/"))
+
+  (setq temporary-file-directory "~/.cache/emacs/")
+
+  ;;emacs像素级滚动支持
+  (pixel-scroll-precision-mode 1)
+  (setq pixel-scroll-precision-interpolate-page t)
+  (defalias 'scroll-up-command 'pixel-scroll-interpolate-down)
+  (defalias 'scroll-down-command 'pixel-scroll-interpolate-up)
+
+  ;;evil配置
+  ;;normal模式全局配置
+  (evil-define-key 'normal 'global
+     "H" "zt" ;;H当前行变成顶部
+     "J" "zz" ;;J当前行变成屏幕中央
+     "K" "zb" ;;K当前行变成屏幕底部
+     )
+  (define-key evil-normal-state-map (kbd "B") 'switch-to-buffer)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
