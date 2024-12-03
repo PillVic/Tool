@@ -559,7 +559,9 @@ before packages are loaded."
      "K" "zb" ;;K当前行变成屏幕底部
      )
   (define-key evil-normal-state-map (kbd "B") 'switch-to-buffer)
-  (define-key evil-normal-state-map (kbd "X") 'kill-buffer-and-window)
+  (define-key evil-normal-state-map (kbd "-") 'kill-buffer-and-window)
+  (define-key evil-normal-state-map (kbd "Q") 'kill-buffer-and-window)
+  (define-key evil-normal-state-map (kbd "W") 'save-buffer)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
