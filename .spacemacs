@@ -50,7 +50,7 @@ This function should only modify configuration layer settings."
      ;; lsp
      markdown
      multiple-cursors
-     (org :variables 
+     (org :variables
           org-enable-modern-support t)
      ;; (shell :variables
      ;;        shell-default-height 30
@@ -69,7 +69,7 @@ This function should only modify configuration layer settings."
    ;; To use a local version of a package, use the `:location' property:
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(ivy-posframe)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -532,13 +532,13 @@ before packages are loaded."
   ;;org mode相关快捷键配置
   ;;latex数学公式预览
   (add-hook 'org-mode-hook
-    (lambda ()
-      (local-set-key (kbd "C-=") 'org-latex-preview)))
+            (lambda ()
+              (local-set-key (kbd "C-=") 'org-latex-preview)))
   ;;跳转超链接后退
   (add-hook 'org-mode-hook
-    (lambda ()
-      (define-key evil-normal-state-local-map
-        (kbd "t") 'org-mark-ring-goto)))
+            (lambda ()
+              (define-key evil-normal-state-local-map
+                          (kbd "t") 'org-mark-ring-goto)))
   ;; 设置 Org Agenda 快捷键
   (global-set-key (kbd "C-c a") 'org-agenda)
   (setq org-agenda-files (list "~/.org-agenda/"))
@@ -551,13 +551,24 @@ before packages are loaded."
   (defalias 'scroll-up-command 'pixel-scroll-interpolate-down)
   (defalias 'scroll-down-command 'pixel-scroll-interpolate-up)
 
+  (require 'ivy-posframe)
+  ;; display at `ivy-posframe-style'
+  (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display)))
+  ;; (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-center)))
+  (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-window-center)))
+  ;; (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-bottom-left)))
+  ;; (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-window-bottom-left)))
+  ;; (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-top-center)))
+  (ivy-posframe-mode 1)
+
+
   ;;evil配置
   ;;normal模式全局配置
   (evil-define-key 'normal 'global
-     "H" "zt" ;;H当前行变成顶部
-     "J" "zz" ;;J当前行变成屏幕中央
-     "K" "zb" ;;K当前行变成屏幕底部
-     )
+    "H" "zt" ;;H当前行变成顶部
+    "J" "zz" ;;J当前行变成屏幕中央
+    "K" "zb" ;;K当前行变成屏幕底部
+    )
   (define-key evil-normal-state-map (kbd "B") 'switch-to-buffer)
   (define-key evil-normal-state-map (kbd "-") 'kill-buffer-and-window)
   (define-key evil-normal-state-map (kbd "Q") 'kill-buffer-and-window)
@@ -593,7 +604,7 @@ This function is called at the very end of Spacemacs initialization."
        ("#3C3D37" . 100)))
    '(magit-diff-use-overlays nil)
    '(package-selected-packages
-     '(all-the-icons-yasnippet web-mode web-beautify tagedit slim-mode scss-mode sass-mode pug-mode prettier-js impatient-mode simple-httpd haml-mode emmet-mode counsel-css counsel swiper company-web web-completion-data add-node-modules-path vmd-mode mmm-mode markdown-toc markdown-mode gh-md emoji-cheat-sheet-plus company-emoji company ws-butler writeroom-mode winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package treemacs-projectile treemacs-persp treemacs-icons-dired treemacs-evil toc-org symon symbol-overlay string-inflection spaceline-all-the-icons spacegray-theme restart-emacs request rainbow-delimiters popwin pcre2el password-generator paradox overseer org-superstar org-projectile org-present org-pomodoro org-mime org-download org-cliplink org-brain open-junk-file  nameless move-text macrostep lorem-ipsum link-hint indent-guide hybrid-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation google-translate golden-ratio gnuplot font-lock+ flycheck-package flycheck-elsa flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu emr elisp-slime-nav editorconfig dumb-jump dotenv-mode diminish devdocs define-word column-enforce-mode color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized clean-aindent-mode centered-cursor-mode auto-highlight-symbol auto-compile alect-themes aggressive-indent ace-link))
+     '(ivy-posframe all-the-icons-yasnippet web-mode web-beautify tagedit slim-mode scss-mode sass-mode pug-mode prettier-js impatient-mode simple-httpd haml-mode emmet-mode counsel-css counsel swiper company-web web-completion-data add-node-modules-path vmd-mode mmm-mode markdown-toc markdown-mode gh-md emoji-cheat-sheet-plus company-emoji company ws-butler writeroom-mode winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package treemacs-projectile treemacs-persp treemacs-icons-dired treemacs-evil toc-org symon symbol-overlay string-inflection spaceline-all-the-icons spacegray-theme restart-emacs request rainbow-delimiters popwin pcre2el password-generator paradox overseer org-superstar org-projectile org-present org-pomodoro org-mime org-download org-cliplink org-brain open-junk-file nameless move-text macrostep lorem-ipsum link-hint indent-guide hybrid-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation google-translate golden-ratio gnuplot font-lock+ flycheck-package flycheck-elsa flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu emr elisp-slime-nav editorconfig dumb-jump dotenv-mode diminish devdocs define-word column-enforce-mode color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized clean-aindent-mode centered-cursor-mode auto-highlight-symbol auto-compile alect-themes aggressive-indent ace-link))
    '(pos-tip-background-color "#FFFACE")
    '(pos-tip-foreground-color "#272822")
    '(vc-annotate-background nil)
