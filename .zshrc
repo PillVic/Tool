@@ -133,6 +133,7 @@ alias search-cpp="fd -t file|ack '(\.cpp)|(\.cc)'| xargs ack "
 alias search-java="fd -t file|ack '(\.java)'| xargs ack "
 alias search-chead="fd -t file|ack '(\.h)'| xargs ack "
 alias search-org="fd -t file|ack '(\.org)'| xargs ack "
+alias activate-miniconda="source ~/.miniconda3/bin/activate"
 
 #clean org-mode latex formula preview svg cache
 alias clean-org-cache="fd --no-ignore -t file |ack ltximg|xargs rm"
@@ -148,3 +149,4 @@ source ~/Private-Reps/ACM/quick.sh
 #alias fd="fdfind"
 export FZF_DEFAULT_COMMAND='fd --hidden --follow -E ".git" -E "node_modules" . /etc /home'
 export FZF_DEFAULT_OPTS='--height 90% --layout=reverse --bind=alt-j:down,alt-k:up,alt-i:toggle+down --border --preview "echo {} | ~/Tool/fzf_preview.py"'
+

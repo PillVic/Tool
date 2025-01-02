@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/bin/env zsh
 
 #desc 系统例行任务脚本
 
@@ -29,5 +29,9 @@ done
 #vim plug update
 vim +PlugUpgrade +PlugUpdate +quit +quit
 
-#conda update --all -y
-#conda clean --all -y
+#后面指令会大量打印无关内容,直接关闭
+set +x
+#activate miniconda
+source ~/.miniconda3/bin/activate
+conda update --all -y
+conda clean --all -y
