@@ -4,11 +4,12 @@ task :installRep => :buildRep do
    sh "git clone git@github.com:ohmyzsh/ohmyzsh.git ~/Reps/.oh-my-zsh"
    sh "git clone git@github.com:zdharma-continuum/fast-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/"
    sh "git clone git@github.com:romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/"
-   sh "git clone git@github.com:cdump/ranger-devicons2.git ~/.config/ranger/plugins/"
    sh "git clone git@github.com:syl20bnr/spacemacs.git ~/.emacs.d"
 
    sh "git clone git@github.com:ChestnutHeng/Wudao-dict.git ~/Reps/Wudao"
    sh "git clone git@github.com:flazz/vim-colorschemes.git ~/Reps/vim-colorschemes"
+
+   sh "ya pack -a yazi-rs/flavors:catppuccin-mocha"
 end
 
 desc '配置仓库'
@@ -17,8 +18,7 @@ task :configRep => :installRep do
    sh "ln -s ~/.oh-my-zsh/custom/plugins/fast-syntax-highlighting ~/Reps/"
    sh "ln -s ~/.oh-my-zsh/custom/themes/powerlevel10k ~/Reps/"
    sh "ln -s ~/Tool/.zshrc ~/.zshrc"
-
-   sh "ln -s ~/.config/ranger/plugins/ranger-devicons2 ~/Reps/"
+   sh "ln -s ~/Tool/yazi ~/.config/yazi"
 
    sh "ln -s ~/.emacs.d ~/Reps/spacemacs"
    sh "ln -s ~/Tool/.spacemacs ~/"
@@ -52,7 +52,7 @@ desc '安装基础软件'
 task :installBase do
    sh "sudo pacman -S yay"
    sh "yay -S git vim emacs-wayland htop tree curl shellcheck ack bat tldr rclone lazygit tig"
-   sh "yay -S ranger-git ffmpegthumbnailer"
+   sh "yay -S yazi ffmpegthumbnailer"
 
    #电源管理
    #sh "yay -S power-profiles-daemon tlp tlpui tlp-rdw"

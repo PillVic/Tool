@@ -118,7 +118,6 @@ export LANG=zh_CN.UTF-8
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-alias ra='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias vi='vim'
 alias batcat="bat"
 alias tailf="tail -f"
@@ -139,6 +138,18 @@ alias activate-miniconda="source ~/.miniconda3/bin/activate"
 alias clean-org-cache="fd --no-ignore -t file |ack ltximg|xargs rm"
 
 export PATH=~/bin:$PATH
+
+export JAVA_HOME="/usr/lib/jvm/java-23-openjdk"
+
+#yazi配置, y即可打开，并退出时保留工作目录
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
 
 # 设置 http 代理(for yay)
 #export http_proxy=http://127.0.0.1:7890
