@@ -160,6 +160,9 @@ source ~/Private-Reps/ACM/quick.sh
 eval "$(zoxide init zsh)"
 
 #alias fd="fdfind"
-export FZF_DEFAULT_COMMAND='fd --hidden --follow -E ".git" -E "node_modules" . /etc /home'
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+#为了避免内存爆炸, fzf仅限于搜索当前目录下的文件
+export FZF_DEFAULT_COMMAND='fd --hidden --follow -E ".git" -E "node_modules" --maxdepth 3 .'
 export FZF_DEFAULT_OPTS='--height 90% --layout=reverse --bind=alt-j:down,alt-k:up,alt-i:toggle+down --border --preview "echo {} | ~/Tool/fzf_preview.py"'
 
