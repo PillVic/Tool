@@ -83,7 +83,6 @@ plugins=(
     copypath
     fast-syntax-highlighting
     colored-man-pages
-    z
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -156,6 +155,9 @@ function y() {
 
 #acm oj
 source ~/Private-Reps/ACM/quick.sh
+
+#zoxide init
+eval "$(zoxide init zsh)"
 
 #alias fd="fdfind"
 export FZF_DEFAULT_COMMAND='fd --hidden --follow -E ".git" -E "node_modules" . /etc /home'
