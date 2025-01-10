@@ -56,6 +56,7 @@ keymap = [
 
     #shell
     { on = "`", run = "shell --confirm --block lazygit", desc = "Lazygit"},
+    { on = "T", run = "shell --confirm --block tig", desc = "tig"},
 
 	# Spotting
 	{ on = "<Tab>", run = "spot", desc = "Spot hovered file" },
