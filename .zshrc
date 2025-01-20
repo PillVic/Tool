@@ -137,8 +137,8 @@ alias activate-miniconda="source ~/.miniconda3/bin/activate"
 alias clean-org-cache="fd --no-ignore -t file |ack ltximg|xargs rm"
 
 export PATH=~/bin:$PATH
-
-export JAVA_HOME="/usr/lib/jvm/java-23-openjdk"
+export JAVA_HOME=/usr/lib/jvm/java-23-openjdk
+export PATH=$JAVA_HOME/bin:$PATH
 
 #yazi配置, y即可打开，并退出时保留工作目录
 function y() {
