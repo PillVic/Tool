@@ -51,7 +51,7 @@ end
 desc '安装基础软件'
 task :installBase do
    sh "sudo pacman -S yay"
-   sh "yay -S git vim emacs-wayland htop tree curl shellcheck ack bat tldr rclone lazygit tig"
+   sh "yay -S git vim emacs-wayland htop tree curl shellcheck ack bat tlrc-bin dust rclone lazygit tig"
    sh "yay -S yazi zoxide ffmpegthumbnailer"
 
    #电源管理
