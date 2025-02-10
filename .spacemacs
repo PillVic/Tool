@@ -573,6 +573,7 @@ before packages are loaded."
   (define-key evil-normal-state-map (kbd "-") 'kill-buffer-and-window)
   (define-key evil-normal-state-map (kbd "Q") 'kill-buffer-and-window)
   (define-key evil-normal-state-map (kbd "W") 'save-buffer)
+  (define-key evil-normal-state-map (kbd "\\") 'evil-ex-nohighlight)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

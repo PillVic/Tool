@@ -1,0 +1,51 @@
+set magic
+set noic
+"反斜杠取消搜索结果高亮
+nnoremap \ :nohl<enter>
+
+"外观设定
+    "状态查看
+    set ruler                        "显示最后一行的状态
+    set showcmd
+    set showmode                     "左下角那一行的状态
+    set laststatus=2                 "显示状态栏
+set nu                           "在每一行前面显示行号
+set relativenumber               "设置相对行号
+syntax on                        "语法高亮
+set cursorline                   "突出显示当前行
+set wildmenu                     "命令行自动补全
+
+"代码折叠
+set foldmethod=indent            "根据每行的缩进来进行代码折叠
+"折叠/展开部分
+nnoremap ` za
+"折叠全部
+nnoremap . zM
+"展开全部
+nnoremap = zR
+
+"输入设定
+set backspace=2                  "随时可用退格键删除
+inoremap <C-j> <ESC>
+set shiftwidth=4                 "设置缩进为4个空格 
+set clipboard=unnamedplus        "剪贴板和系统互通
+
+"tab设置为4个空格
+set ts=4
+set expandtab
+nnoremap W :w<enter>
+nnoremap Q :q<enter>
+nnoremap - :tabclose<enter>
+"设置回车键为命令模式
+nnoremap <enter> :
+"设置 m, J为自动设置当前行为屏幕中间
+nnoremap m zz
+nnoremap J zz
+"设置K为将当前行为屏幕最后一行
+nnoremap K zb
+
+
+"shift+H移到前一个标签页
+nnoremap <S-H> gT
+"shift+L移到后一个标签页
+nnoremap <S-L> gt
