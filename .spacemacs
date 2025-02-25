@@ -177,7 +177,9 @@ It should only modify the values of Spacemacs settings."
    ;; directory. A string value must be a path to an image format supported
    ;; by your Emacs build.
    ;; If the value is nil then no banner is displayed. (default 'official)
-   dotspacemacs-startup-banner 'official
+   dotspacemacs-startup-banner  "~/Tool/laugh-man.png"
+   dotspacemacs-startup-banner-scale 1.0
+   spacemacs-buffer-logo-title ""
 
    ;; List of items to show in startup buffer or an association list of
    ;; the form `(list-type . list-size)`. If nil then it is disabled.
@@ -446,7 +448,7 @@ It should only modify the values of Spacemacs settings."
    ;; `trailing' to delete only the whitespace at end of lines, `changed' to
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
-   dotspacemacs-whitespace-cleanup nil
+   dotspacemacs-whitespace-cleanup `all
 
    ;; If non nil activate `clean-aindent-mode' which tries to correct
    ;; virtual indentation of simple modes. This can interfer with mode specific
@@ -496,9 +498,11 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
 
+  ;;spacemacs icon美化
+  (setq dotspacemacs-startup-buffer-show-icons t)
+
   (require 'org)
   ;;org-mode latex公式预览配置支持(\mbox形式支持中文)
-  (setq org-latex-create-formula-image-program 'dvipng)
   (add-to-list 'org-preview-latex-process-alist '(xdvsvgm :progams
                                                           ("xelatex" "dvisvgm")
                                                           :discription "xdv > svg"
