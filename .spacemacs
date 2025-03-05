@@ -503,20 +503,23 @@ before packages are loaded."
 
   (require 'org)
   ;;org-mode latex公式预览配置支持(\mbox形式支持中文)
-  (add-to-list 'org-preview-latex-process-alist '(xdvsvgm :progams
-                                                          ("xelatex" "dvisvgm")
-                                                          :discription "xdv > svg"
-                                                          :message "you need install the programs: xelatex and dvisvgm."
-                                                          :image-input-type "xdv"
-                                                          :image-output-type "svg"
-                                                          :image-size-adjust (0.7 . 0.5)
-                                                          :latex-compiler ("xelatex -interaction nonstopmode -no-pdf -output-directory %o %F")
-                                                          :image-converter ("dvisvgm %F -n -b min -c %S -o %O")))
-  (setq org-preview-latex-default-process 'xdvsvgm)
+  (setq org-preview-latex-process-alist
+    '((dvisvgm :programs ("latex" "dvisvgm")
+                :description "dvi > svg"
+                :message "you need to install the programs: latex and dvisvgm."
+                :image-input-type "dvi"
+                :image-output-type "svg"
+                :image-size-adjust (1.0 . 1.0)
+                :latex-compiler ("latex -interaction nonstopmode -output-directory %o %f")
+                :image-converter ("dvisvgm %f -n -b min -c %S --currentcolor -o %O")))) ; currentcolor is important
+  (setq org-latex-packages-alist
+    '(("" "tikz" t)
+      ("" "tikz-cd" t)
+      ("" "minted")
+      ("" "ctex")))
 
+  (setq org-latex-create-formula-image-program 'dvisvgm)
   (plist-put org-format-latex-options :scale 3.0)
-
-  (add-to-list 'org-latex-packages-alist '("" "ctex"))
 
   (setq org-latex-pdf-process '("xelatex -interaction nonstopmode %f"
                                 "xelatex -interaction nonstopmode %f"))
