@@ -1,5 +1,9 @@
-[plugin]
-deps = [{ use = "llanosrocas/githead", rev = "bf150f3" }]
+[[plugin.deps]]
+use = "llanosrocas/githead"
+rev = "bf150f3"
+hash = "d1832095a601b1cd5662d673acc03f26"
 
-[flavor]
-deps = [{ use = "yazi-rs/flavors:catppuccin-mocha", rev = "fc8eeaa" }]
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-mocha"
+rev = "fc8eeaa"
+hash = "407710c2af9621a8351453e637d6c870"
