@@ -512,14 +512,13 @@ before packages are loaded."
                 :image-size-adjust (1.0 . 1.0)
                 :latex-compiler ("latex -interaction nonstopmode -output-directory %o %f")
                 :image-converter ("dvisvgm %f -n -b min -c %S --currentcolor -o %O")))) ; currentcolor is important
-  (setq org-latex-packages-alist
-    '(("" "tikz" t)
-      ("" "tikz-cd" t)
-      ("" "minted")
-      ("" "ctex")))
+  ;(add-to-list 'org-latex-packages-alist '("" "tikz" t))
+  ;(add-to-list 'org-latex-packages-alist '("" "tikz-cd" t))
+  ;(add-to-list 'org-latex-packages-alist '("" "minted" t))
+  (add-to-list 'org-latex-packages-alist '("" "ctex"))
 
   (setq org-latex-create-formula-image-program 'dvisvgm)
-  (plist-put org-format-latex-options :scale 3.0)
+  (plist-put org-format-latex-options :scale 2.0)
 
   (setq org-latex-pdf-process '("xelatex -interaction nonstopmode %f"
                                 "xelatex -interaction nonstopmode %f"))
