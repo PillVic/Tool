@@ -125,6 +125,8 @@ alias view="vim -R"
 alias alfd="fd --no-ignore-vcs"
 alias lg="lazygit"
 alias history="fc -li 1"
+#列出当前目录下最近3小时内更改过的文件
+alias recent-file="find -type f -mmin -180"
 #file content search
 alias search-code="fd -t file|ack -v '(\.cpp)|(\.c)|(\.java)|()'| xargs ack "
 alias search-cpp="fd -t file|ack '(\.cpp)|(\.cc)'| xargs ack "
