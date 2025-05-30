@@ -32,7 +32,7 @@ end
 desc '构造存放github库所需的文件结构'
 task :buildRep do
    sh "mkdir ~/Reps"
-   
+
    #还需要配置git的ssh-key,在~/.ssh/下生成
    #ssh-keygen -t rsa -C "youremail@example.com"
 end
@@ -55,6 +55,9 @@ task :installBase do
    sh "sudo pacman -S yay"
    sh "yay -S git vim emacs-wayland htop tree curl shellcheck ack bat tlrc-bin dust rclone lazygit tig"
    sh "yay -S yazi zoxide ffmpegthumbnailer"
+
+   #安装文献管理软件
+   sh "yay -S paperlib-appimage"
 
    #电源管理
    #sh "yay -S power-profiles-daemon tlp tlpui tlp-rdw"
