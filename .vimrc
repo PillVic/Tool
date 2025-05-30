@@ -1,7 +1,7 @@
 "Vim的配置文件
 
 "编码设定
-set encoding=utf-8              "默认编码为utf-8       
+set encoding=utf-8              "默认编码为utf-8
 
 "搜索设置
 set magic                       "搜索开启正则表达式
@@ -40,14 +40,19 @@ set backspace=2                  "随时可用退格键删除
 set autoindent                   "自动缩进
 set smartindent                  "换行时智能缩进
 inoremap <C-j> <ESC>
-set shiftwidth=4                 "设置缩进为4个空格 
+set shiftwidth=4                 "设置缩进为4个空格
 set clipboard=unnamedplus        "剪贴板和系统互通
 nnoremap f :Autoformat <enter>
+"保存时自动删除行尾多余空白字符
+augroup vimrc
+autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
+augroup END
+
 
 "tab设置为4个空格
 set ts=4
 set expandtab
-set undodir=~/.vim/undo-dir      "undo file save directory 	
+set undodir=~/.vim/undo-dir      "undo file save directory
 set undofile                     "保存撤销历史
 set directory=~/.vim/swapfiles
 nnoremap W :w<enter>
@@ -68,16 +73,16 @@ nnoremap K zb
 let g:autoformat_verbosemode=1
 
 "记忆编辑位置
-if has("autocmd")                                                          
+if has("autocmd")
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif 
+endif
 
 "分割布局
 set splitbelow
-set splitright                
+set splitright
     "使用快捷键crlt+Vim标准移动键实现布局切换
      nnoremap <C-J> <C-W><C-J>
-     nnoremap <C-K> <C-W><C-K>         
+     nnoremap <C-K> <C-W><C-K>
      nnoremap <C-L> <C-W><C-L>
      nnoremap <C-H> <C-W><C-H>
 
