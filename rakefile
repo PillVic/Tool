@@ -58,6 +58,7 @@ task :installBase do
 
    #安装文献管理软件
    sh "yay -S paperlib-appimage"
+   sh "yay -S texlab"
 
    #电源管理
    #sh "yay -S power-profiles-daemon tlp tlpui tlp-rdw"
