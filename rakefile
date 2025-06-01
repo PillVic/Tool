@@ -6,7 +6,6 @@ task :installRep => :buildRep do
    sh "git clone git@github.com:romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/"
    sh "git clone git@github.com:syl20bnr/spacemacs.git ~/.emacs.d"
 
-   sh "git clone git@github.com:ChestnutHeng/Wudao-dict.git ~/Reps/Wudao"
    sh "git clone git@github.com:flazz/vim-colorschemes.git ~/Reps/vim-colorschemes"
 
    sh "ya pack -a yazi-rs/flavors:catppuccin-mocha"
@@ -18,6 +17,7 @@ task :configRep => :installRep do
    sh "ln -s ~/.oh-my-zsh/custom/plugins/fast-syntax-highlighting ~/Reps/"
    sh "ln -s ~/.oh-my-zsh/custom/themes/powerlevel10k ~/Reps/"
    sh "ln -s ~/Tool/.zshrc ~/.zshrc"
+   sh "ln -s ~/Tool/kd.toml ~/.config/"
    sh "ln -s ~/Tool/yazi ~/.config/yazi"
 
    sh "ln -s ~/.emacs.d ~/Reps/spacemacs"
@@ -75,7 +75,7 @@ task :installBase do
    #sh "yay -S nekoray-bin"
    sh "yay -S v2raya-bin"
 
-   sh "sudo pip3 install lxml bs4"
+   sh "yay -S kd-bin"
 
    #安装中文输入法fctix5(wayland必须使用fcitx5)
    sh "yay -S fcitx5  fcitx5-configtool fcitx5-qt fcitx5-gtk fcitx-chinese-addons kcm-fcitx5 fcitx5-lua fcitx5-pinyin-zhwiki"
