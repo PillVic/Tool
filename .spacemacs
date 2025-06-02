@@ -51,11 +51,12 @@ This function should only modify configuration layer settings."
      markdown
      multiple-cursors
      pdf
+     bibtex
      (latex :variables
             latex-backend 'lsp
             latex-refresh-preview t
             latex-enable-folding t
-            latex-build-command "LaTeX")
+            latex-build-engine 'xetex)
      (org :variables
           org-enable-modern-support t)
      ;; (shell :variables
