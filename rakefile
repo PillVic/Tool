@@ -1,10 +1,10 @@
 
 desc '从github安装所需仓库'
 task :installRep => :buildRep do
-   sh "git clone git@github.com:ohmyzsh/ohmyzsh.git ~/Reps/.oh-my-zsh"
-   sh "git clone git@github.com:zdharma-continuum/fast-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/"
-   sh "git clone git@github.com:romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/"
-   sh "git clone git@github.com:syl20bnr/spacemacs.git ~/.emacs.d"
+   sh "git clone git@github.com:ohmyzsh/ohmyzsh.git ~/Reps/ohmyzsh"
+   sh "git clone git@github.com:zdharma-continuum/fast-syntax-highlighting.git ~/Reps/fast-syntax-highlighting"
+   sh "git clone git@github.com:romkatv/powerlevel10k.git ~/Reps/powerlevel10k"
+   sh "git clone git@github.com:syl20bnr/spacemacs.git ~/Reps/spacemacs"
 
    sh "git clone git@github.com:flazz/vim-colorschemes.git ~/Reps/vim-colorschemes"
 
@@ -13,26 +13,22 @@ end
 
 desc '配置仓库'
 task :configRep => :installRep do
-   sh "ln -s ~/.oh-my-zsh ~/Reps/ohmyzsh"
-   sh "ln -s ~/.oh-my-zsh/custom/plugins/fast-syntax-highlighting ~/Reps/"
-   sh "ln -s ~/.oh-my-zsh/custom/themes/powerlevel10k ~/Reps/"
+   sh "ln -s ~/Reps/ohmyzsh ~/.oh-my-zsh"
+   sh "ln -s ~/Reps/fast-syntax-highlighting ~/.oh-my-zsh/custom/plugins/"
+   sh "ln -s ~/Reps/powerlevel10k ~/.oh-my-zsh/custom/themes/"
    sh "ln -s ~/Tool/.zshrc ~/.zshrc"
    sh "ln -s ~/Tool/kd.toml ~/.config/"
    sh "ln -s ~/Tool/yazi ~/.config/yazi"
 
-   sh "ln -s ~/.emacs.d ~/Reps/spacemacs"
+   sh "ln -s ~/Reps/spacemacs ~/.emacs.d "
    sh "ln -s ~/Tool/.spacemacs ~/"
 
    sh "ln -s ~/Reps/vim-colorschemes/colors ~/.vim/"
    sh "ln -s ~/Reps/vim-colorschemes/scripts ~/.vim/"
-
-   sh "cd ~/Reps/Wudao-dict;sudo bash setup.sh"
 end
 
 desc '构造存放github库所需的文件结构'
 task :buildRep do
-   sh "mkdir ~/Reps"
-
    #还需要配置git的ssh-key,在~/.ssh/下生成
    #ssh-keygen -t rsa -C "youremail@example.com"
 end
@@ -81,7 +77,7 @@ task :installBase do
    sh "yay -S fcitx5  fcitx5-configtool fcitx5-qt fcitx5-gtk fcitx-chinese-addons kcm-fcitx5 fcitx5-lua fcitx5-pinyin-zhwiki"
 
    #time set
-   sh "yay -S install ntpdate"
+   sh "yay -S ntpdate"
    sh "sudo ntpdate cn.pool.ntp.org"
    sh "sudo hwclock --localtime --systohc"
 

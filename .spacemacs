@@ -233,7 +233,7 @@ It should only modify the values of Spacemacs settings."
 
    ;; Default font or prioritized list of fonts.
    dotspacemacs-default-font '("Ubuntu Mono"
-                               :size 24.0
+                               :size 18.0
                                :weight normal
                                :width normal)
 
@@ -515,7 +515,7 @@ before packages are loaded."
                 :message "you need to install the programs: latex and dvisvgm."
                 :image-input-type "dvi"
                 :image-output-type "svg"
-                :image-size-adjust (1.0 . 1.0)
+                :image-size-adjust (0.6 . 0.6)
                 :latex-compiler ("latex -interaction nonstopmode -output-directory %o %f")
                 :image-converter ("dvisvgm %f -n -b min -c %S --currentcolor -o %O")))) ; currentcolor is important
   ;(add-to-list 'org-latex-packages-alist '("" "tikz" t))
@@ -524,7 +524,7 @@ before packages are loaded."
   (add-to-list 'org-latex-packages-alist '("" "ctex"))
 
   (setq org-latex-create-formula-image-program 'dvisvgm)
-  (plist-put org-format-latex-options :scale 2.0)
+  (plist-put org-format-latex-options :scale 1.5)
 
   (setq org-latex-pdf-process '("xelatex -interaction nonstopmode %f"
                                 "xelatex -interaction nonstopmode %f"))
