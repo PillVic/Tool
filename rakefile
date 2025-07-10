@@ -51,6 +51,8 @@ task :installBase do
    sh "sudo pacman -S yay"
    sh "yay -S git vim emacs-wayland htop tree curl shellcheck ack bat tlrc-bin dust rclone lazygit tig"
    sh "yay -S yazi zoxide ffmpegthumbnailer"
+   #unar
+   sh "yay -S unarchiver"
 
    #安装文献管理软件
    sh "yay -S paperlib-appimage"
@@ -88,5 +90,5 @@ task :installBase do
    sh "yay -S texlive-full"
 
    #install multi-media
-   sh "yay -S yesplaymusic linuxqq wechat-universal-bwrap"
+   sh "yay -S yesplaymusic linuxqq wechat-appimage"
 end
