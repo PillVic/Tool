@@ -232,7 +232,7 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-colorize-cursor-according-to-state t
 
    ;; Default font or prioritized list of fonts.
-   dotspacemacs-default-font '("Ubuntu Mono"
+   dotspacemacs-default-font '("Noto Sans Mono CJK HK"
                                :size 18.0
                                :weight normal
                                :width normal)
@@ -533,6 +533,14 @@ before packages are loaded."
 
   ;;org-mode改换折叠符号
   (setq org-ellipsis "↷")
+  ;;org-mode改换标题符号
+  (setq org-modern-fold-stars '(("⚫" . "⚪")
+                                ("♚" . "♔")
+                                ("♛" . "♕")
+                                ("♜" . "♖")
+                                ("♝" . "♗")
+                                ("♞" . "♘")
+                                ("♟" . "♙")))
 
   ;;org-mode整屏幕打开链接
   (setq org-link-frame-setup '( (vm . vm-visit-folder)
