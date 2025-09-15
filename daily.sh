@@ -35,3 +35,7 @@ set +x
 source ~/.miniconda3/bin/activate
 conda update --all -y
 conda clean --all -y
+
+#tldr update
+tldr --update
+
