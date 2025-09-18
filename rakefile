@@ -1,18 +1,18 @@
 
 desc '从github安装所需仓库'
 task :installRep => :buildRep do
-   sh "git clone git@github.com:ohmyzsh/ohmyzsh.git ~/Reps/ohmyzsh"
-   sh "git clone git@github.com:zdharma-continuum/fast-syntax-highlighting.git ~/Reps/fast-syntax-highlighting"
-   sh "git clone git@github.com:romkatv/powerlevel10k.git ~/Reps/powerlevel10k"
-   sh "git clone git@github.com:syl20bnr/spacemacs.git ~/Reps/spacemacs"
+   sh "git clone git@github.com:ohmyzsh/ohmyzsh.git ~/Reps/ohmyzsh --depth=1"
+   sh "git clone git@github.com:zdharma-continuum/fast-syntax-highlighting.git ~/Reps/fast-syntax-highlighting --depth=1"
+   sh "git clone git@github.com:romkatv/powerlevel10k.git ~/Reps/powerlevel10k --depth=1"
+   sh "git clone git@github.com:syl20bnr/spacemacs.git ~/Reps/spacemacs --depth=1"
 
-   sh "git clone git@github.com:flazz/vim-colorschemes.git ~/Reps/vim-colorschemes"
+   sh "git clone git@github.com:flazz/vim-colorschemes.git ~/Reps/vim-colorschemes --depth=1"
 
-   sh "ya pack -a yazi-rs/flavors:catppuccin-mocha"
+   sh "ya pack -a yazi-rs/flavors:catppuccin-mocha --depth=1"
 end
 
 desc '配置仓库'
-task :configRep => :installRep do
+task :configRep do
    sh "ln -s ~/Reps/ohmyzsh ~/.oh-my-zsh"
    sh "ln -s ~/Reps/fast-syntax-highlighting ~/.oh-my-zsh/custom/plugins/"
    sh "ln -s ~/Reps/powerlevel10k ~/.oh-my-zsh/custom/themes/"
@@ -34,7 +34,7 @@ task :buildRep do
 end
 
 desc '配置vim'
-task :setVim => :installBase do
+task :setVim do
    sh "mkdir ~/.vim/undo-dir"
    sh "mkdir ~/.vim/swapfiles"
    sh "curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
