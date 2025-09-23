@@ -42,6 +42,7 @@ task :setVim do
    sh "ln -s ~/Tool/.ideavimrc ~/"
    sh "ln -s ~/Tool/.vscodevimrc ~/"
    sh "ln -s ~/Tool/.clang-format ~/"
+   sh "ln -s ~/Tool/coc-settings.json ~/.config/coc/"
 
    sh "vim +PlugInstall +quit +quit"
 end
