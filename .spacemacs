@@ -233,7 +233,7 @@ It should only modify the values of Spacemacs settings."
 
    ;; Default font or prioritized list of fonts.
    dotspacemacs-default-font '("Noto Sans Mono CJK HK"
-                               :size 12.0
+                               :size 18.0
                                :weight normal
                                :width normal)
 
