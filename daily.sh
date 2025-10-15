@@ -37,5 +37,5 @@ conda update --all -y
 conda clean --all -y
 
 #tldr update
-tldr --update
+#tldr --update
 
