@@ -56,6 +56,7 @@ This function should only modify configuration layer settings."
             latex-backend 'lsp
             latex-refresh-preview t
             latex-enable-folding t
+            latex-enable-auto-fill nil  ;;取消自动换行
             latex-build-engine 'xetex)
      (org :variables
           org-enable-modern-support t)
@@ -562,6 +563,18 @@ before packages are loaded."
   ;; 设置 Org Agenda 快捷键
   (global-set-key (kbd "C-c a") 'org-agenda)
   (setq org-agenda-files (list "~/.org-agenda/"))
+
+  ;;latex配置
+  (setq preview-auto-cache-preamble nil)
+  (setq preview-scale-function 0.6)
+  ;;预览整个文档
+  (add-hook 'LaTeX-mode-hook
+            (lambda ()
+              (local-set-key (kbd "C-`") 'preview-buffer)))
+  ;;预览当前公式
+  (add-hook 'LaTeX-mode-hook
+            (lambda ()
+              (local-set-key (kbd "C-=") 'preview-at-point)))
 
   (setq temporary-file-directory "~/.cache/emacs/")
 
