@@ -571,6 +571,9 @@ before packages are loaded."
   (add-hook 'LaTeX-mode-hook
             (lambda ()
               (local-set-key (kbd "C-`") 'preview-buffer)))
+  ;;支持预览tikz绘图
+  (eval-after-load "preview"
+    '(add-to-list 'preview-default-preamble "\\PreviewEnvironment{tikzpicture}" t))
   ;;预览当前公式
   (add-hook 'LaTeX-mode-hook
             (lambda ()
