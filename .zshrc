@@ -131,12 +131,12 @@ alias recent-file="find -type f -mmin -360"
 alias today-file="find -type f -mtime -1"
 alias week-file="find -type f -mtime -7"
 #file content search
-alias search-code="ack --type-set=code:ext:cpp,c,java,py"
+alias search-code="ack --type-set=code:ext:cpp,c,java,py,pyc,yaml --code"
 alias search-cpp="ack --type=cpp"
 alias search-java="ack --type=java"
 alias search-py="ack --type=python"
 alias search-chead="ack --type=hh"
-alias search-org="ack --type-set=org:ext:org"
+alias search-org="ack --type-add=org:ext:org --org"
 alias activate-miniconda="source ~/.miniconda3/bin/activate"
 
 #clean org-mode latex formula preview svg cache
